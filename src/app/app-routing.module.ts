@@ -11,8 +11,13 @@ import { AddFeedComponent } from "./pages/feeds/add-feed/add-feed.component";
 import { HorsesComponent } from "./pages/horses/horses.component";
 import { HorseComponent } from "./pages/horses/horse/horse.component";
 import { AddHorseComponent } from "./pages/horses/add-horse/add-horse.component";
+import { LoginComponent } from "./pages/login/login.component";
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
     canActivate:[SignedinGuard],
