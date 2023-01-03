@@ -1,0 +1,19 @@
+.my-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.card-my-form-signup {
+  max-width: 400px;
+}
+.content {
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+mat-form-field {
+  width: 100%;
+}
+.no-account {
+  margin-top:20px;
+}

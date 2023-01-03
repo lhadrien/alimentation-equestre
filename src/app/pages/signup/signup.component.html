@@ -1,1 +1,38 @@
-<p>signup works!</p>
+<mat-card class="card-my-form-signup">
+  <mat-card-header>
+    <mat-card-title>Se creer un compte</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div class="my-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Entrez votre mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmation</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="confirmation">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="confirmation.invalid">{{getConfirmationErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="accent">Valider</button>
+    </div>
+    <p class="no-account">Déjà un compte ? <a routerLink="/login">Connectez-vous</a></p>
+  </mat-card-content>
+</mat-card>
+
+
+

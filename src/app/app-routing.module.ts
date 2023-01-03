@@ -12,11 +12,16 @@ import { HorsesComponent } from "./pages/horses/horses.component";
 import { HorseComponent } from "./pages/horses/horse/horse.component";
 import { AddHorseComponent } from "./pages/horses/add-horse/add-horse.component";
 import { LoginComponent } from "./pages/login/login.component";
+import { SignupComponent } from "./pages/signup/signup.component";
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: '',

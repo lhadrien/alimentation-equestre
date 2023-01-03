@@ -31,6 +31,7 @@ import { EditHorseComponent } from './pages/horses/edit-horse/edit-horse.compone
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
