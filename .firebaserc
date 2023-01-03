@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "alimentation-equestre": {
+      "hosting": {
+        "alimentation-equestre": [
+          "alimentation-equestre"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "alimentation-equestre"
+  }
+}
