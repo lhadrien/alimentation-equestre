@@ -28,6 +28,9 @@ import { AddFeedComponent } from './pages/feeds/add-feed/add-feed.component';
 import { HorseComponent } from './pages/horses/horse/horse.component';
 import { AddHorseComponent } from './pages/horses/add-horse/add-horse.component';
 import { EditHorseComponent } from './pages/horses/edit-horse/edit-horse.component';
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { EditHorseComponent } from './pages/horses/edit-horse/edit-horse.compone
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

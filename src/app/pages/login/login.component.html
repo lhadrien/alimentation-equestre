@@ -1,1 +1,27 @@
-<p>login works!</p>
+<mat-card class="card-my-form">
+  <mat-card-header>
+    <mat-card-title>Veuillez vous authentifier</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div class="my-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Login</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-raised-button color="accent">Valider</button>
+    </div>
+    <p class="no-account">Pas de compte ? <a routerLink="signup">Créez-en un</a></p>
+  </mat-card-content>
+</mat-card>
+
+
+
