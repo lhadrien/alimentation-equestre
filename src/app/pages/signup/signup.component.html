@@ -7,13 +7,13 @@
     <div class="my-form">
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput [formControl]="email" required>
+        <input matInput [formControl]="email" tabindex="1" required>
         <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Entrez votre mot de passe</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" >
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" tabindex="2">
+        <button tabindex="5" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -21,14 +21,14 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Confirmation</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="confirmation">
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="confirmation" tabindex="3">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="confirmation.invalid">{{getConfirmationErrorMessage()}}</mat-error>
       </mat-form-field>
-      <button mat-raised-button color="accent">Valider</button>
+      <button tabindex="4" mat-raised-button color="accent" [disabled]="password.invalid || email.invalid || confirmation.invalid" (click)="validate()">Valider</button>
     </div>
     <p class="no-account">Déjà un compte ? <a routerLink="/login">Connectez-vous</a></p>
   </mat-card-content>

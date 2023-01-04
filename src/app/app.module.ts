@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { NavigationComponent } from './layout/navigation/navigation.component';
@@ -32,6 +32,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CookieService } from "ngx-cookie-service";
+import { ErrorComponent } from './layout/error/error.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     AddFeedComponent,
     HorseComponent,
     AddHorseComponent,
-    EditHorseComponent
+    EditHorseComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -70,8 +73,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     ReactiveFormsModule
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService, UserTrackingService, CookieService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
