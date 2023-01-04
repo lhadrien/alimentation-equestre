@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import { createUserWithEmailAndPassword, getAuth, UserCredential } from "@angular/fire/auth";
+import { browserLocalPersistence, createUserWithEmailAndPassword, getAuth, setPersistence } from "@angular/fire/auth";
 import { UserService } from "../../services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
+import { collection, doc, Firestore, setDoc } from "@angular/fire/firestore";
 
 export function confirmationValidator(password: FormControl): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -20,6 +21,7 @@ export function confirmationValidator(password: FormControl): ValidatorFn {
 export class SignupComponent {
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
+  name = new FormControl('', [Validators.required]);
   password = new FormControl('', [
     Validators.required,
     Validators.pattern('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{1,}$'),
@@ -32,7 +34,8 @@ export class SignupComponent {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private afs: Firestore
   ) {}
 
   getPasswordErrorMessage() {
@@ -56,6 +59,13 @@ export class SignupComponent {
     return this.email.hasError('email') ? 'email non valide' : '';
   }
 
+  getNameErrorMessage() {
+    if (this.name.hasError('required')) {
+      return 'Vous devez entrer un nom ou un pseudo';
+    }
+    return '';
+  }
+
   getConfirmationErrorMessage() {
     if (this.confirmation.hasError('confirmation')) {
       return 'Mots de passes différents';
@@ -64,28 +74,31 @@ export class SignupComponent {
     return '';
   }
 
-
-  validate() {
+  async validate(): Promise<void> {
     const auth = getAuth();
+    await auth.setPersistence(browserLocalPersistence);
     if (this.email.value === null) {
       return;
     }
-    createUserWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '')
-      .then((userCredential: UserCredential) => {
-        this.userService.user = userCredential.user;
-        this.cookieService.set('userSession', userCredential.user.uid);
-        this.route.queryParams.subscribe(params => {
-          if (params['returnUrl'] !== null && params['returnUrl'] !== undefined) {
-            this.router.navigate([params['returnUrl']]);
-          }
-          this.router.navigate(['/']);
-        });
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+    try {
+      this.userService.user = await createUserWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '');
+      this.cookieService.set('userSession', this.userService.user.user.uid);
+      console.log(this.userService.user.user.uid);
+      await setDoc(doc(collection(this.afs, 'users'), this.userService.user.user.uid), {
+        name: this.name.value,
+        email: this.email.value
       });
+      this.userService.setName(this.name.value);
+      this.userService.setEmail(this.email.value);
+      this.route.queryParams.subscribe(params => {
+        if (params['returnUrl'] !== null && params['returnUrl'] !== undefined) {
+          this.router.navigate([params['returnUrl']]);
+        }
+        this.router.navigate(['/']);
+      });
+    } catch (error: any) {
+      console.log(error.code);
+      console.log(error.message);
+    }
   }
 }
