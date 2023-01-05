@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 import { ErrorComponent } from './layout/error/error.component';
 import { FormHorseComponent } from './pages/horses/form-horse/form-horse.component';
+import { MatSliderModule } from "@angular/material/slider";
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { FormHorseComponent } from './pages/horses/form-horse/form-horse.compone
     MatInputModule,
     MatCardModule,
     MatToolbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule
   ],
   providers: [
     ScreenTrackingService, UserTrackingService, CookieService

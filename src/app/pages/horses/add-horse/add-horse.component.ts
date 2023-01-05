@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Horse } from "../../../entity/horse";
 
 @Component({
   selector: 'app-add-horse',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 export class AddHorseComponent {
   newHorse: any;
 
+  constructor() {
+    this.newHorse = new Horse({});
+  }
 }

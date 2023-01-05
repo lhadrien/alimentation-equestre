@@ -13,6 +13,7 @@ export type LoggedUser = {
 export class UserService {
   user: UserCredential | null = null;
   private loggedUser: LoggedUser | null = null;
+  idUser: string | null = null;
 
   constructor(
     private afs: Firestore
@@ -20,7 +21,8 @@ export class UserService {
 
   async getFirebaseUser(uid: string) {
     if (this.user !== null) {
-      const data: DocumentSnapshot<any> = await getDoc(doc(this.afs, this.user.user.uid));
+      this.idUser = uid;
+      const data: DocumentSnapshot<any> = await getDoc(doc(this.afs, this.idUser));
       if (data.exists()) {
         const user = data.data();
         this.setUser(user);
@@ -30,7 +32,12 @@ export class UserService {
 
   async saveFirebaseUser(uid: string, user: LoggedUser) {
     if (this.user !== null) {
-      await setDoc(doc(collection(this.afs, 'users'), this.user.user.uid), user);
+      this.idUser = uid;
+      await setDoc(doc(collection(this.afs, 'users'), uid), user);
+      await setDoc(doc(collection(this.afs, 'userdata'), uid), {
+        horses: [],
+        menus: [],
+      });
     }
   }
 

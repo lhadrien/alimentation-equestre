@@ -1,0 +1,16 @@
+.card-my-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.card-my-form {
+  max-width: 600px;
+}
+.content {
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+mat-form-field, mat-slider {
+  width: 100%;
+}
