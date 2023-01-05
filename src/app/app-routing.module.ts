@@ -58,16 +58,14 @@ const routes: Routes = [
       {
         path: 'horses',
         component: HorsesComponent,
-        children: [
-          {
-            path: ':id',
-            component: HorseComponent,
-          },
-          {
-            path: 'add',
-            component: AddHorseComponent,
-          },
-        ]
+      },
+      {
+        path: 'horses/add',
+        component: AddHorseComponent,
+      },
+      {
+        path: 'horses/:id',
+        component: HorseComponent,
       },
       {
         path: 'dashboard',

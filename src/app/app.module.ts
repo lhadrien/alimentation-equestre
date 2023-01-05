@@ -34,6 +34,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 import { ErrorComponent } from './layout/error/error.component';
+import { FormHorseComponent } from './pages/horses/form-horse/form-horse.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ErrorComponent } from './layout/error/error.component';
     HorseComponent,
     AddHorseComponent,
     EditHorseComponent,
-    ErrorComponent
+    ErrorComponent,
+    FormHorseComponent
   ],
   imports: [
     BrowserModule,

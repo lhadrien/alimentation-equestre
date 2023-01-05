@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-horse.component.scss']
 })
 export class AddHorseComponent {
+  newHorse: any;
 
 }

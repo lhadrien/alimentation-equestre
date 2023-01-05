@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import { browserLocalPersistence, createUserWithEmailAndPassword, getAuth, setPersistence } from "@angular/fire/auth";
-import { UserService } from "../../services/user.service";
+import {
+  browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  getAuth,
+  setPersistence,
+  UserCredential
+} from "@angular/fire/auth";
+import { LoggedUser, UserService } from "../../services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { collection, doc, Firestore, setDoc } from "@angular/fire/firestore";
@@ -75,21 +81,19 @@ export class SignupComponent {
   }
 
   async validate(): Promise<void> {
-    const auth = getAuth();
-    await auth.setPersistence(browserLocalPersistence);
-    if (this.email.value === null) {
+    if (this.email.value === null || this.name.value === null) {
       return;
     }
+    const auth = getAuth();
+    await auth.setPersistence(browserLocalPersistence);
     try {
-      this.userService.user = await createUserWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '');
+      const user: UserCredential = await createUserWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '');
+      this.userService.user = user;
       this.cookieService.set('userSession', this.userService.user.user.uid);
-      console.log(this.userService.user.user.uid);
-      await setDoc(doc(collection(this.afs, 'users'), this.userService.user.user.uid), {
+      await this.userService.saveFirebaseUser(user.user.uid, {
         name: this.name.value,
         email: this.email.value
       });
-      this.userService.setName(this.name.value);
-      this.userService.setEmail(this.email.value);
       this.route.queryParams.subscribe(params => {
         if (params['returnUrl'] !== null && params['returnUrl'] !== undefined) {
           this.router.navigate([params['returnUrl']]);

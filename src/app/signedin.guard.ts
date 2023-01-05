@@ -19,7 +19,6 @@ export class SignedinGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     this.userSession = this.cookieService.get('userSession');
-    console.log(this.cookieService.get('userSession'))
     if (this.userSession === undefined || this.userSession === null || this.userSession === '') {
       this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}}).then();
       return false;
