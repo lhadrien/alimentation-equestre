@@ -11,6 +11,45 @@ export type HorseType = {
   age: number | null;
 }
 
+export function convertToHorseActivity(value: number | string): HorseActivity {
+  switch (value) {
+    case 1:
+    case 'Lawnmower':
+    case 'Tondeuse':
+      return 'Lawnmower';
+    case 2:
+    case 'Work a little':
+    case 'Peu':
+      return 'Work a little';
+    case 3:
+    case 'Work a lot':
+    case 'Beaucoup':
+      return 'Work a lot';
+    default:
+      return 'Lawnmower';
+  }
+}
+
+export function convertToHorseState(value: number | string): HorseState {
+  if (Number.isInteger(value) && value >= 1 && value <= 5) {
+    return value as HorseState;
+  }
+  switch (value) {
+    case 'Très maigre':
+      return 1;
+    case 'Maigre':
+      return 2;
+    case 'Normal':
+      return 3;
+    case 'Gras':
+      return 4;
+    case 'Obèse':
+      return 5;
+    default:
+      return 3;
+  }
+}
+
 export class Horse {
   public name: string;
   public weight: number | null;
@@ -29,4 +68,6 @@ export class Horse {
     this.activity = horse.activity ?? 'Lawnmower';
     this.age = horse.age ?? null;
   }
+
+
 }

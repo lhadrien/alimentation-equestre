@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Horse } from "../../../entity/horse";
+import { convertToHorseActivity, convertToHorseState, Horse, HorseType } from "../../../entity/horse";
 import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { HorseService } from "../../../services/horse.service";
 
@@ -90,8 +90,17 @@ export class FormHorseComponent implements OnInit {
     return `Erreur`;
   }
 
-  validate() {
-    this.horseService.saveHorse();
+  async validate() {
+    const horse: Horse = new Horse({
+      name: String(this.name?.value),
+      age: Number(this.age?.value),
+      activity: convertToHorseActivity(this.activity?.value),
+      height: Number(this.height?.value),
+      race: String(this.race?.value),
+      state: convertToHorseState(this.state?.value),
+      weight: Number(this.weight?.value)
+    });
+    await this.horseService.saveHorse(horse);
   }
 
 }

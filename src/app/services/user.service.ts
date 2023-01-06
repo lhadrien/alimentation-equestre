@@ -22,7 +22,7 @@ export class UserService {
   async getFirebaseUser(uid: string) {
     if (this.user !== null) {
       this.idUser = uid;
-      const data: DocumentSnapshot<any> = await getDoc(doc(this.afs, this.idUser));
+      const data: DocumentSnapshot<any> = await getDoc(doc(collection(this.afs, 'users'), this.idUser));
       if (data.exists()) {
         const user = data.data();
         this.setUser(user);

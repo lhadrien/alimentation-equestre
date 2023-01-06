@@ -14,20 +14,22 @@ import { Firestore } from "@angular/fire/firestore";
 export class LoginComponent {
   hide = true;
 
-  email = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
 
   constructor(
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private cookieService: CookieService,
-    private afs: Firestore
+    private cookieService: CookieService
   ) {}
 
   async login() {
+    if (this.email.invalid || this.password.invalid) {
+      return;
+    }
     const auth = getAuth();
-    await setPersistence(auth, browserLocalPersistence);
+    await auth.setPersistence(browserLocalPersistence);
     try {
 
       const user = await signInWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '');
@@ -43,6 +45,7 @@ export class LoginComponent {
     } catch (error: any) {
       console.log(error.code);
       console.log(error.message);
+      console.log(error);
     }
   }
 }

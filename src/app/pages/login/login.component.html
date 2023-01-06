@@ -7,17 +7,19 @@
     <div class="my-form">
       <mat-form-field appearance="fill">
         <mat-label>Login</mat-label>
-        <input matInput>
+        <input matInput [formControl]="email">
+        <mat-error *ngIf="email.invalid">email valide requis</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
+        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+        <mat-error *ngIf="password.invalid">Mot de passe requis</mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-raised-button color="accent">Valider</button>
+      <button mat-raised-button color="accent" (click)="login()">Valider</button>
     </div>
     <p class="no-account">Pas de compte ? <a routerLink="/signup">Créez-en un</a></p>
   </mat-card-content>
