@@ -12,6 +12,9 @@ body {
 .column {
   flex-direction: column;
 }
+.row {
+  flex-direction: row;
+}
 
 .shrink {
   flex-shrink: 1;

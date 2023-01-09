@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { convertToHorseActivity, convertToHorseState, Horse, HorseType } from "../../../entity/horse";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { convertToHorseActivity, convertToHorseState, Horse } from "../../../entity/horse";
 import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { HorseService } from "../../../services/horse.service";
 
@@ -11,6 +11,9 @@ import { HorseService } from "../../../services/horse.service";
 export class FormHorseComponent implements OnInit {
   @Input()
   horse!: Horse;
+
+  @Output()
+  deleteHorse = new EventEmitter<Horse>();
 
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -101,6 +104,10 @@ export class FormHorseComponent implements OnInit {
       weight: Number(this.weight?.value)
     });
     await this.horseService.saveHorse(horse);
+  }
+
+  delete() {
+    this.deleteHorse.emit(this.horse)
   }
 
 }

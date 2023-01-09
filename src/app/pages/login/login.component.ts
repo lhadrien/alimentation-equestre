@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { browserLocalPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from "@angular/fire/auth";
+import { browserLocalPersistence, getAuth, signInWithEmailAndPassword } from "@angular/fire/auth";
 import { FormControl, Validators } from "@angular/forms";
 import { UserService } from "../../services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
-import { Firestore } from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-login',

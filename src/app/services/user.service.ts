@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { UserCredential } from '@angular/fire/auth';
 import { collection, doc, DocumentSnapshot, Firestore, getDoc, setDoc } from "@angular/fire/firestore";
+import { Horse } from "../entity/horse";
 
 export type LoggedUser = {
   name: string;
   email: string;
+}
+
+export type UserData = {
+  horses: { [key: string]: Horse };
+  menus: [];
 }
 
 @Injectable({
@@ -12,6 +18,7 @@ export type LoggedUser = {
 })
 export class UserService {
   user: UserCredential | null = null;
+  userData: UserData | null = null;
   private loggedUser: LoggedUser | null = null;
   idUser: string | null = null;
 
@@ -23,9 +30,12 @@ export class UserService {
     if (this.user !== null) {
       this.idUser = uid;
       const data: DocumentSnapshot<any> = await getDoc(doc(collection(this.afs, 'users'), this.idUser));
+      const dataUser: DocumentSnapshot<any> = await getDoc(doc(collection(this.afs, 'userdata'), this.idUser));
       if (data.exists()) {
-        const user = data.data();
-        this.setUser(user);
+        this.setUser(data.data());
+      }
+      if (dataUser.exists()) {
+        this.setUserData(dataUser.data());
       }
     }
   }
@@ -35,9 +45,9 @@ export class UserService {
       this.idUser = uid;
       await setDoc(doc(collection(this.afs, 'users'), uid), user);
       await setDoc(doc(collection(this.afs, 'userdata'), uid), {
-        horses: [],
+        horses: {},
         menus: [],
-      });
+      } as UserData);
     }
   }
 
@@ -47,5 +57,13 @@ export class UserService {
 
   getUser(): LoggedUser | null {
     return this.loggedUser;
+  }
+
+  setUserData(user: UserData) {
+    this.userData = user;
+  }
+
+  getUserData(): UserData | null {
+    return this.userData;
   }
 }

@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import {
-  browserLocalPersistence,
-  createUserWithEmailAndPassword,
-  getAuth,
-  setPersistence,
-  UserCredential
-} from "@angular/fire/auth";
-import { LoggedUser, UserService } from "../../services/user.service";
+import { browserLocalPersistence, createUserWithEmailAndPassword, getAuth, UserCredential } from "@angular/fire/auth";
+import { UserService } from "../../services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
-import { collection, doc, Firestore, setDoc } from "@angular/fire/firestore";
+import { Firestore } from "@angular/fire/firestore";
 
 export function confirmationValidator(password: FormControl): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

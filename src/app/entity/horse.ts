@@ -1,7 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export type HorseState = 1 | 2 | 3 | 4 | 5;
 export type HorseActivity = 'Lawnmower' | 'Work a little' | 'Work a lot';
 
 export type HorseType = {
+  id: string;
   name: string;
   weight: number | null;
   height: number | null;
@@ -58,8 +61,10 @@ export class Horse {
   public state: HorseState;
   public activity: HorseActivity;
   public age: number | null;
+  public id: string;
 
   constructor(horse: Partial<HorseType>) {
+    this.id = horse.id ?? uuidv4();
     this.name = horse.name ?? '';
     this.weight = horse.weight ?? null;
     this.height = horse.height ?? null;
@@ -69,5 +74,16 @@ export class Horse {
     this.age = horse.age ?? null;
   }
 
-
+  toFirestore(): HorseType {
+    return {
+      'id': this.id,
+      'name': this.name,
+      'weight': this.weight,
+      'height': this.height,
+      'race': this.race,
+      'state': this.state,
+      'activity': this.activity,
+      'age': this.age,
+    };
+  }
 }
