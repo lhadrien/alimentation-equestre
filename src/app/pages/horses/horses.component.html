@@ -1,10 +1,7 @@
-<div class="mb-40 flex row">
+<div class="mb-40 flex row container">
   <button mat-fab color="primary" aria-label="Ajouter un cheval" (click)="addHorse()">
     <mat-icon>add</mat-icon>
   </button>
-  <app-form-horse [horse]="horse" *ngFor="let horse of horses" (deleteHorse)="deleteHorse($event)"></app-form-horse>
-
-</div>
-<div class="flex">
+  <app-form-horse [horse]="horse.value" *ngFor="let horse of horses | keyvalue" (deleteHorse)="deleteHorse($event)"></app-form-horse>
 
 </div>

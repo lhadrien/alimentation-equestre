@@ -7,32 +7,32 @@
     <form class="my-form" [formGroup]="form" (submit)="validate()">
       <mat-form-field appearance="fill">
         <mat-label>Nom du cheval</mat-label>
-        <input matInput [formControlName]="'name'" tabindex="1" required>
+        <input matInput [formControlName]="'name'" [readonly]="isReadonly" tabindex="1" required>
         <mat-error *ngIf="name?.errors?.['required']">Veuillez entrer un nom</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Poids</mat-label>
         <span matTextSuffix="">kg</span>
-        <input matInput [formControlName]="'weight'" tabindex="2">
+        <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="weight?.errors?.['min']">Le poids doit etre supérieur à 50kg</mat-error>
         <mat-error *ngIf="weight?.errors?.['max']">Le poids doit etre inférieur à 1500kg</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Hauteur</mat-label>
         <span matTextSuffix="">cm</span>
-        <input matInput [formControlName]="'height'" tabindex="2">
+        <input matInput [formControlName]="'height'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="height?.errors?.['min']">La hauteur doit etre supérieur à 50cm</mat-error>
         <mat-error *ngIf="height?.errors?.['max']">La hauteur doit etre inférieur à 200cm</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Race</mat-label>
-        <input matInput [formControlName]="'race'" tabindex="2" maxlength="50">
+        <input matInput [formControlName]="'race'" [readonly]="isReadonly" tabindex="2" maxlength="50">
         <mat-error *ngIf="race?.errors?.['maxlength']">Nom trop grand</mat-error>
       </mat-form-field>
       <div class="form-field">
         <label for="state">Etat général</label>
         <mat-slider showTickMarks min="1" max="5" step="1" discrete [displayWith]="formatState">
-          <input id="state" [formControlName]="'state'" matSliderThumb>
+          <input id="state" [formControlName]="'state'" [readonly]="isReadonly" matSliderThumb>
         </mat-slider>
         <mat-error *ngIf="state?.errors?.['min']">Etat inconnu</mat-error>
         <mat-error *ngIf="state?.errors?.['max']">Etat inconnu</mat-error>
@@ -41,7 +41,7 @@
       <div class="form-field">
         <label for="activity">Quantité d'activité</label>
         <mat-slider showTickMarks min="1" max="3" step="1" discrete [displayWith]="formatActivity">
-          <input id="activity" [formControlName]="'activity'" matSliderThumb>
+          <input id="activity" [formControlName]="'activity'" [readonly]="isReadonly" matSliderThumb>
         </mat-slider>
         <mat-error *ngIf="state?.errors?.['min']">Etat inconnu</mat-error>
         <mat-error *ngIf="state?.errors?.['max']">Etat inconnu</mat-error>
@@ -49,7 +49,7 @@
       </div>
       <mat-form-field appearance="fill">
         <mat-label>Age</mat-label>
-        <input matInput [formControlName]="'age'" tabindex="2">
+        <input matInput [formControlName]="'age'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="age?.errors?.['min']">L'age doit etre au moins 1 an</mat-error>
         <mat-error *ngIf="age?.errors?.['max']">L'age ne peut pas etre supérieur a 50 ans</mat-error>
       </mat-form-field>

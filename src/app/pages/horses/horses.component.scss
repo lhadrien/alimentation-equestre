@@ -1,0 +1,6 @@
+.container {
+  //justify-content: space-between;
+}
+.container > *:not(:last-child) {
+  margin-right: 40px;
+}

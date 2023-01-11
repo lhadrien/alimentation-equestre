@@ -12,6 +12,9 @@ export class FormHorseComponent implements OnInit {
   @Input()
   horse!: Horse;
 
+  @Input()
+  isReadonly: boolean = true;
+
   @Output()
   deleteHorse = new EventEmitter<Horse>();
 
@@ -46,6 +49,9 @@ export class FormHorseComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.horse);
+    if (this.horse.name === undefined || this.horse.name === null || this.horse.name === '') {
+      this.isReadonly = false;
+    }
     this.form.patchValue(this.horse);
   }
 
