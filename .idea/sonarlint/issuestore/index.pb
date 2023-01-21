@@ -50,25 +50,7 @@ Z
 *src/app/pages/horses/horses.component.html,5/0/5081f29ec93b64307a60140e404eaa074d4bf399
 G
 src/app/entity/horse.ts,7/e/7ef415b15eca9ba276c3f63c60eaa6398968ffb8
-X
-(src/app/pages/feeds/feeds.component.html,b/5/b5ab8becd8c43717b6363d7a7d95de2fee6745b6
-i
-9src/app/pages/horses/form-horse/form-horse.component.html,8/b/8b1eb1848d75233c47e558da204c212111dfac3f
 F
 src/app/entity/food.ts,a/0/a0958b8e3f8026cb12704302bf5e2d3708ac0070
-V
-&src/app/pages/feeds/feeds.component.ts,a/8/a8aedc38ec7c95fb3c7549064f3e3b3c918463e3
 f
 6src/app/pages/feeds/form-food/form-food.component.html,0/f/0f1a0b97e95e1e6851637d9b382e6810eb6cd954
-X
-(src/app/pages/horses/horses.component.ts,0/6/067165d3a7122a13f9bae0ec567a0d3040c53068
-P
- src/app/services/food.service.ts,5/c/5c03eaa4b1e2c65121765aaff18fa355af473d31
-P
- src/app/services/user.service.ts,a/d/ada3c8ef83215f42c63110fa812da6fe69eb8de5
-Q
-!src/app/services/horse.service.ts,a/3/a360018de9cf63dc47b7e8938a1cf3855dd741cc
-g
-7src/app/pages/horses/form-horse/form-horse.component.ts,6/0/60e8c99bec71eb102c8a3b7e462e954e0aaa87f6
-d
-4src/app/pages/feeds/form-food/form-food.component.ts,1/8/18d18629ad34ed96df923c9a8fe21d33ca9643cb
