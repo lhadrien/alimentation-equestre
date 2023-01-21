@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core'
-import { browserLocalPersistence, getAuth, signInWithEmailAndPassword } from '@angular/fire/auth'
+import {
+  browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  UserCredential,
+} from '@angular/fire/auth'
 import { collection, doc, DocumentSnapshot, Firestore, getDoc, setDoc } from '@angular/fire/firestore'
 import { Horse } from '../entity/horse'
+import { ActivatedRoute, Router } from '@angular/router'
 
 export type LoggedUser = {
   name: string
@@ -22,7 +29,7 @@ export class UserService {
   private displayName: string = ''
   private email: string = ''
 
-  constructor(private afs: Firestore) {
+  constructor(private afs: Firestore, private router: Router, private route: ActivatedRoute) {
     const auth = getAuth()
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -35,6 +42,8 @@ export class UserService {
       } else {
         console.log('[onAuthStateChanged] Disconnected')
         this.idUser = null
+        this.displayName = ''
+        this.email = ''
       }
     })
     const user = auth.currentUser
@@ -65,10 +74,12 @@ export class UserService {
   }
 
   async saveFirebaseUser(uid: string, user: LoggedUser) {
+    console.log('[saveFirebaseUser] Start saving')
     if (uid !== null) {
       this.idUser = uid
       await setDoc(doc(collection(this.afs, 'users'), uid), user)
       await setDoc(doc(collection(this.afs, 'userdata'), uid), {
+        user: user,
         horses: {},
         menus: [],
       } as UserData)
@@ -87,6 +98,34 @@ export class UserService {
     } catch (error) {
       console.log('[signIn] Error while sign in to Firebase')
       console.warn(error)
+    }
+  }
+
+  async signOut(): Promise<void> {
+    try {
+      const auth = getAuth()
+      await auth.signOut()
+      console.log('[signOut] Sign out done')
+    } catch (error) {
+      console.log('[signOut] Error while sign out from Firebase')
+      console.warn(error)
+    }
+  }
+
+  async signUp(email: string, password: string, name: string) {
+    try {
+      const auth = getAuth()
+      await auth.setPersistence(browserLocalPersistence)
+      const user: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
+      console.log('[createUserWithEmailAndPassword] Signed Up user')
+      await this.saveFirebaseUser(user.user.uid, {
+        name: name,
+        email: email,
+      })
+      console.log('[saveFirebaseUser] User saved')
+    } catch (error: any) {
+      console.log(error.code)
+      console.log(error.message)
     }
   }
 

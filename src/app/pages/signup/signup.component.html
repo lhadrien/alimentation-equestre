@@ -33,7 +33,7 @@
         </button>
         <mat-error *ngIf="confirmation.invalid">{{getConfirmationErrorMessage()}}</mat-error>
       </mat-form-field>
-      <button tabindex="4" mat-raised-button color="accent" [disabled]="password.invalid || email.invalid || confirmation.invalid" (click)="validate()">Valider</button>
+      <button tabindex="4" mat-raised-button color="accent" [disabled]="password.invalid || email.invalid || confirmation.invalid" (click)="signUp()">Valider</button>
     </div>
     <p class="no-account">Déjà un compte ? <a routerLink="/login">Connectez-vous</a></p>
   </mat-card-content>

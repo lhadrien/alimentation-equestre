@@ -6,7 +6,7 @@ import { UserService } from './services/user.service'
 @Injectable({
   providedIn: 'root',
 })
-export class SignedinGuard implements CanActivate {
+export class SignedoutGuard implements CanActivate {
   userSession: string | null = null
 
   constructor(private router: Router, private userService: UserService) {}
@@ -15,8 +15,8 @@ export class SignedinGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (!this.userService.idUser) {
-      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } }).then()
+    if (this.userService.idUser) {
+      this.router.navigate(['/']).then()
       return false
     }
     return true

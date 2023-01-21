@@ -1,6 +1,8 @@
 <mat-card class="card-my-form">
   <mat-card-header class="mb-10">
-    <mat-card-title>Ajouter un cheval</mat-card-title>
+    <mat-card-title *ngIf="!isReadonly && !isCreated">Ajouter un cheval</mat-card-title>
+    <mat-card-title *ngIf="isReadonly && isCreated">Carte du cheval</mat-card-title>
+    <mat-card-title *ngIf="!isReadonly && isCreated">Editer mon cheval</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="content">
@@ -57,7 +59,9 @@
         <mat-error *ngIf="age?.errors?.['pattern']">L'age doit etre un chiffre entier</mat-error>
       </mat-form-field>
 
-      <button type="submit" tabindex="4" mat-raised-button color="accent">Valider</button>
+      <button *ngIf="!isReadonly" type="submit" tabindex="4" mat-raised-button color="accent">Valider</button>
+      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="4" mat-raised-button color="accent">Editer</button>
+      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="5" mat-raised-button>Supprimer</button>
     </form>
   </mat-card-content>
 </mat-card>

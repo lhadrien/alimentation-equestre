@@ -36,6 +36,7 @@ import { CookieService } from "ngx-cookie-service";
 import { ErrorComponent } from './layout/error/error.component';
 import { FormHorseComponent } from './pages/horses/form-horse/form-horse.component';
 import { MatSliderModule } from "@angular/material/slider";
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MatSliderModule } from "@angular/material/slider";
     AddHorseComponent,
     EditHorseComponent,
     ErrorComponent,
-    FormHorseComponent
+    FormHorseComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

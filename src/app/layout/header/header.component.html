@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" class="flex">
+  <span class="grow">Alimentation Equestre</span>
+  <span class="shrink" *ngIf="isConnected()">
+    <span class="to-right">{{ getName() }}</span>
+    <span class="to-right"><button tabindex="4" mat-raised-button (click)="signOut()">Deconnecter</button></span>
+  </span>
+</mat-toolbar>
