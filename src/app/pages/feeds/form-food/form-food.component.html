@@ -1,0 +1,49 @@
+<mat-card class="card-my-form">
+  <mat-card-header class="mb-10">
+    <mat-card-title *ngIf="!isReadonly && !isCreated">Ajouter un aliment</mat-card-title>
+    <mat-card-title *ngIf="isReadonly && isCreated">Carte de l'aliment</mat-card-title>
+    <mat-card-title *ngIf="!isReadonly && isCreated">Editer l'aliment</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <form class="my-form" [formGroup]="form" (submit)="validate()">
+      <mat-form-field appearance="fill">
+        <mat-label>Food name</mat-label>
+        <input matInput [formControlName]="'foodName'" [readonly]="isReadonly" tabindex="1" required>
+        <mat-error *ngIf="foodName?.errors?.['required']">Merci d'entrer un nom</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Brand</mat-label>
+        <input matInput [formControlName]="'brand'" [readonly]="isReadonly" tabindex="2" maxlength="50">
+        <mat-error *ngIf="brand?.errors?.['maxlength']">le nom doit etre moins grand</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <span matTextSuffix="">$</span>
+        <input matInput [formControlName]="'price'" [readonly]="isReadonly" tabindex="3">
+        <mat-error *ngIf="price?.errors?.['min']">Prix trop bas</mat-error>
+        <mat-error *ngIf="price?.errors?.['max']">Prix excessif</mat-error>
+        <mat-error *ngIf="price?.errors?.['pattern']">Doit etre un nombre</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Weight</mat-label>
+        <span matTextSuffix="">kg</span>
+        <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
+        <mat-error *ngIf="weight?.errors?.['min']">Poids trop faible</mat-error>
+        <mat-error *ngIf="weight?.errors?.['max']">Poids trop lourd</mat-error>
+        <mat-error *ngIf="weight?.errors?.['pattern']">Doit etre un nombre</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Ratio</mat-label>
+        <span matTextSuffix="">kg</span>
+        <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
+        <mat-error *ngIf="ratio?.errors?.['min'] || ratio?.errors?.['max']">Doit etre compris entre 0.01 et 100</mat-error>
+        <mat-error *ngIf="ratio?.errors?.['pattern']">Doit etre un nombre</mat-error>
+      </mat-form-field>
+      <button *ngIf="!isReadonly" type="submit" tabindex="5" mat-raised-button color="accent">Validate</button>
+      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="6" mat-raised-button color="accent">Edit</button>
+      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="7" mat-raised-button>Delete</button>
+    </form>
+
+  </mat-card-content>
+</mat-card>

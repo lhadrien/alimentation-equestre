@@ -27,6 +27,15 @@ body {
 .mb-40 {
   margin-bottom:40px;
 }
+.mr-40 {
+  margin-right:40px;
+}
 .mb-10 {
   margin-bottom:10px;
+}
+.container {
+  //justify-content: space-between;
+}
+.container > *:not(:last-child) {
+  margin-right: 40px;
 }

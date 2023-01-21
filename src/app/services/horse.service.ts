@@ -18,11 +18,9 @@ export class HorseService {
         })
         return true
       } catch (error) {
-        console.log("Erreur lors de l'appel a Firebase")
+        console.log('Error : failed to save to Firebase')
         console.error(error)
       }
-    } else {
-      console.log('on fait rien car this.userService.idUer est vide', this.userService.idUser)
     }
     return false
   }

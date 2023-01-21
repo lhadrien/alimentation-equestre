@@ -5,12 +5,8 @@ import { MenusComponent } from './pages/menus/menus.component'
 import { SignedinGuard } from './signedin.guard'
 import { AddMenuComponent } from './pages/menus/add-menu/add-menu.component'
 import { FeedsComponent } from './pages/feeds/feeds.component'
-import { FeedComponent } from './pages/feeds/feed/feed.component'
 import { MenuComponent } from './pages/menus/menu/menu.component'
-import { AddFeedComponent } from './pages/feeds/add-feed/add-feed.component'
 import { HorsesComponent } from './pages/horses/horses.component'
-import { HorseComponent } from './pages/horses/horse/horse.component'
-import { AddHorseComponent } from './pages/horses/add-horse/add-horse.component'
 import { LoginComponent } from './pages/login/login.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { SignedoutGuard } from './signedout.guard'
@@ -46,28 +42,10 @@ const routes: Routes = [
       {
         path: 'feeds',
         component: FeedsComponent,
-        children: [
-          {
-            path: ':id',
-            component: FeedComponent,
-          },
-          {
-            path: 'add',
-            component: AddFeedComponent,
-          },
-        ],
       },
       {
         path: 'horses',
         component: HorsesComponent,
-      },
-      {
-        path: 'horses/add',
-        component: AddHorseComponent,
-      },
-      {
-        path: 'horses/:id',
-        component: HorseComponent,
       },
       {
         path: 'dashboard',
