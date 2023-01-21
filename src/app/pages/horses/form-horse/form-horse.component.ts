@@ -18,15 +18,22 @@ export class FormHorseComponent implements OnInit {
   @Output()
   deleteHorse = new EventEmitter<Horse>();
 
+  @Output()
+  createdHorse = new EventEmitter<Horse>();
+
+  isCreated: boolean = false;
+
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     weight: new FormControl('', [
       Validators.min(50),
-      Validators.max(1500)
+      Validators.max(1500),
+      Validators.pattern(/^\d*$/)
     ]),
     height: new FormControl('', [
       Validators.min(50),
-      Validators.max(200)
+      Validators.max(200),
+      Validators.pattern(/^\d*$/)
     ]),
     race: new FormControl('', [
       Validators.maxLength(50),
@@ -42,6 +49,7 @@ export class FormHorseComponent implements OnInit {
     age: new FormControl('', [
       Validators.max(50),
       Validators.min(1),
+      Validators.pattern(/^\d*$/)
     ])
   });
 
@@ -51,6 +59,9 @@ export class FormHorseComponent implements OnInit {
     console.log(this.horse);
     if (this.horse.name === undefined || this.horse.name === null || this.horse.name === '') {
       this.isReadonly = false;
+      this.isCreated = false;
+    } else {
+      this.isCreated = true;
     }
     this.form.patchValue(this.horse);
   }
@@ -100,20 +111,24 @@ export class FormHorseComponent implements OnInit {
   }
 
   async validate() {
-    const horse: Horse = new Horse({
-      name: String(this.name?.value),
-      age: Number(this.age?.value),
-      activity: convertToHorseActivity(this.activity?.value),
-      height: Number(this.height?.value),
-      race: String(this.race?.value),
-      state: convertToHorseState(this.state?.value),
-      weight: Number(this.weight?.value)
-    });
-    await this.horseService.saveHorse(horse);
+    this.horse.name = String(this.name?.value);
+    this.horse.age = Number(this.age?.value);
+    this.horse.activity = convertToHorseActivity(this.activity?.value);
+    this.horse.height = Number(this.height?.value);
+    this.horse.race = String(this.race?.value);
+    this.horse.state = convertToHorseState(this.state?.value);
+    this.horse.weight = Number(this.weight?.value);
+    try {
+      await this.horseService.saveHorse(this.horse);
+      this.isReadonly = true;
+      this.createdHorse.emit(this.horse);
+    } catch (error) {
+      console.warn('Une erreur est survenue', error);
+    }
   }
 
   delete() {
-    this.deleteHorse.emit(this.horse)
+    this.deleteHorse.emit(this.horse);
   }
 
 }

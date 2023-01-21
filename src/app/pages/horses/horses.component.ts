@@ -27,5 +27,10 @@ export class HorsesComponent {
 
   deleteHorse(horse: Horse) {
     this.horseService.deleteHorse(horse).then();
+    delete this.horses[horse.id];
+  }
+
+  addHorseToList(horse: Horse) {
+    this.displayNewHorse = false;
   }
 }

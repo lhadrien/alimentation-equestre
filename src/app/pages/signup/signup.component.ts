@@ -82,11 +82,10 @@ export class SignupComponent {
     await auth.setPersistence(browserLocalPersistence);
     try {
       const user: UserCredential = await createUserWithEmailAndPassword(auth, this.email.value ?? '', this.password.value ?? '');
-      this.userService.user = user;
-      this.cookieService.set('userSession', this.userService.user.user.uid);
+      this.cookieService.set('userSession', user.user.uid);
       await this.userService.saveFirebaseUser(user.user.uid, {
         name: this.name.value,
-        email: this.email.value
+        email: this.email.value,
       });
       this.route.queryParams.subscribe(params => {
         if (params['returnUrl'] !== null && params['returnUrl'] !== undefined) {

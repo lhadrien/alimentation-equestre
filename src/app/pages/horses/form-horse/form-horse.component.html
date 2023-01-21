@@ -16,6 +16,7 @@
         <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="weight?.errors?.['min']">Le poids doit etre supérieur à 50kg</mat-error>
         <mat-error *ngIf="weight?.errors?.['max']">Le poids doit etre inférieur à 1500kg</mat-error>
+        <mat-error *ngIf="weight?.errors?.['pattern']">Le poids doit etre un chiffre entier</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Hauteur</mat-label>
@@ -23,6 +24,7 @@
         <input matInput [formControlName]="'height'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="height?.errors?.['min']">La hauteur doit etre supérieur à 50cm</mat-error>
         <mat-error *ngIf="height?.errors?.['max']">La hauteur doit etre inférieur à 200cm</mat-error>
+        <mat-error *ngIf="weight?.errors?.['pattern']">La hauteur doit etre un chiffre entier</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Race</mat-label>
@@ -52,6 +54,7 @@
         <input matInput [formControlName]="'age'" [readonly]="isReadonly" tabindex="2">
         <mat-error *ngIf="age?.errors?.['min']">L'age doit etre au moins 1 an</mat-error>
         <mat-error *ngIf="age?.errors?.['max']">L'age ne peut pas etre supérieur a 50 ans</mat-error>
+        <mat-error *ngIf="age?.errors?.['pattern']">L'age doit etre un chiffre entier</mat-error>
       </mat-form-field>
 
       <button type="submit" tabindex="4" mat-raised-button color="accent">Valider</button>
