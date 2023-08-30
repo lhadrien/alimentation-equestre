@@ -32,7 +32,7 @@ import { ErrorComponent } from './layout/error/error.component'
 import { FormHorseComponent } from './pages/horses/form-horse/form-horse.component'
 import { MatSliderModule } from '@angular/material/slider'
 import { HeaderComponent } from './layout/header/header.component'
-import { FormFoodComponent } from './pages/feeds/form-food/form-food.component'
+import { FormFeedComponent } from './pages/feeds/form-feed/form-feed.component'
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { FormFoodComponent } from './pages/feeds/form-food/form-food.component'
     ErrorComponent,
     FormHorseComponent,
     HeaderComponent,
-    FormFoodComponent,
+    FormFeedComponent,
   ],
   imports: [
     BrowserModule,

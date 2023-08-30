@@ -9,7 +9,7 @@ import {
 import { collection, doc, DocumentSnapshot, Firestore, getDoc, setDoc } from '@angular/fire/firestore'
 import { Horse } from '../entity/horse'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Food } from '../entity/food'
+import { Feed } from '../entity/feed'
 
 export type LoggedUser = {
   name: string
@@ -18,7 +18,7 @@ export type LoggedUser = {
 
 export type UserData = {
   horses: { [key: string]: Horse }
-  feed: { [key: string]: Food }
+  feeds: { [key: string]: Feed }
   menus: []
 }
 
@@ -83,7 +83,7 @@ export class UserService {
       await setDoc(doc(collection(this.afs, 'userdata'), uid), {
         user: user,
         horses: {},
-        feed: {},
+        feeds: {},
         menus: [],
       } as UserData)
       console.log('[saveFirebaseUser] Saved Firebase user')

@@ -9,7 +9,7 @@ export type FoodType = {
   ratio: number
 }
 
-export class Food {
+export class Feed {
   public id: string
   public name: string
   public brand: string

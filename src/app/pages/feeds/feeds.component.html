@@ -1,6 +1,13 @@
 <section class="flex mb-40 container">
-  <div class="my-form shrink">
-    <app-form-food [food]="selectedFood"></app-form-food>
+  <button mat-fab color="primary" aria-label="Ajouter une bouffe" (click)="addFeed()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <div class="my-form shrink flex">
+    <div *ngIf="selectedFeed !== undefined">
+      <app-form-feed [feed]="selectedFeed!"></app-form-feed>
+    </div>
   </div>
+</section>
+<section>
   <div class="my-list grow"></div>
 </section>

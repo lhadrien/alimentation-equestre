@@ -8,9 +8,9 @@
   <mat-card-content class="content">
     <form class="my-form" [formGroup]="form" (submit)="validate()">
       <mat-form-field appearance="fill">
-        <mat-label>Food name</mat-label>
-        <input matInput [formControlName]="'foodName'" [readonly]="isReadonly" tabindex="1" required>
-        <mat-error *ngIf="foodName?.errors?.['required']">Merci d'entrer un nom</mat-error>
+        <mat-label>Feed name</mat-label>
+        <input matInput [formControlName]="'feedName'" [readonly]="isReadonly" tabindex="1" required>
+        <mat-error *ngIf="feedName?.errors?.['required']">Merci d'entrer un nom</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Brand</mat-label>

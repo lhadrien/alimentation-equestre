@@ -1,39 +1,39 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { Food } from '../../../entity/food'
+import { Feed } from '../../../entity/feed'
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms'
-import { FoodService } from '../../../services/food.service'
+import { FeedService } from '../../../services/feed.service'
 
 @Component({
-  selector: 'app-form-food',
-  templateUrl: './form-food.component.html',
-  styleUrls: ['./form-food.component.scss'],
+  selector: 'app-form-feed',
+  templateUrl: './form-feed.component.html',
+  styleUrls: ['./form-feed.component.scss'],
 })
-export class FormFoodComponent {
+export class FormFeedComponent {
   @Input()
-  food!: Food
+  feed!: Feed
 
   @Output()
-  deleteFood = new EventEmitter<Food>()
+  deleteFeed = new EventEmitter<Feed>()
 
   @Output()
-  createdFood = new EventEmitter<Food>()
+  createdFeed = new EventEmitter<Feed>()
 
   isCreated: boolean = false
 
   isReadonly: boolean = true
 
-  constructor(private foodService: FoodService) {}
+  constructor(private feedService: FeedService) {}
 
   form: FormGroup = new FormGroup({
-    foodName: new FormControl('', Validators.required),
+    feedName: new FormControl('', Validators.required),
     brand: new FormControl('', [Validators.maxLength(50)]),
     price: new FormControl('', [Validators.min(0), Validators.max(1000), Validators.pattern(/^\d*\.?\d*$/)]),
     weight: new FormControl('', [Validators.min(0.1), Validators.max(1000), Validators.pattern(/^\d*\.?\d*$/)]),
     ratio: new FormControl('', [Validators.min(0.01), Validators.max(100), Validators.pattern(/^\d*\.?\d*$/)]),
   })
 
-  get foodName(): AbstractControl<any, any> | null {
-    return this.form.get('foodName')
+  get feedName(): AbstractControl<any, any> | null {
+    return this.form.get('feedName')
   }
   get brand(): AbstractControl<any, any> | null {
     return this.form.get('brand')
@@ -45,31 +45,31 @@ export class FormFoodComponent {
     return this.form.get('weight')
   }
   get ratio(): AbstractControl<any, any> | null {
-    return this.form.get('foodName')
+    return this.form.get('feedName')
   }
 
   async validate() {
-    this.food.name = String(this.foodName?.value)
-    this.food.brand = String(this.brand?.value)
-    this.food.price = Number(this.price?.value)
-    this.food.weight = Number(this.weight?.value)
-    this.food.ratio = Number(this.ratio?.value)
+    this.feed.name = String(this.feedName?.value)
+    this.feed.brand = String(this.brand?.value)
+    this.feed.price = Number(this.price?.value)
+    this.feed.weight = Number(this.weight?.value)
+    this.feed.ratio = Number(this.ratio?.value)
     try {
-      const res: boolean = await this.foodService.saveFood(this.food)
+      const res: boolean = await this.feedService.saveFeed(this.feed)
       if (res) {
-        console.log('[validate foodService] Food validated')
+        console.log('[validate feedService] Feed validated')
         this.isReadonly = true
-        this.createdFood.emit(this.food)
+        this.createdFeed.emit(this.feed)
       } else {
         console.log('[validate horseService] Horse failed')
       }
     } catch (error) {
-      console.log('[validate foodService] Food failed')
+      console.log('[validate feedService] Feed failed')
     }
   }
 
   delete() {
-    this.deleteFood.emit(this.food)
+    this.deleteFeed.emit(this.feed)
   }
 
   edit() {

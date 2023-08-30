@@ -36,7 +36,7 @@ export class HorseService {
   getHorses(): { [key: string]: Horse } {
     const user: UserData | null = this.userService.getUserData()
     let horses: { [key: string]: Horse } = {}
-    if (user && user.horses) {
+    if (user?.horses) {
       Object.keys(user.horses).forEach((horseId) => {
         horses[horseId] = new Horse(user.horses[horseId])
       })
