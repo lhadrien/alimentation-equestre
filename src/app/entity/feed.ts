@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export type FoodType = {
+export type FeedType = {
   id: string
   name: string
   brand: string
@@ -17,16 +17,16 @@ export class Feed {
   public weight: number
   public ratio: number
 
-  constructor(food: Partial<FoodType>) {
-    this.id = food.id ?? uuidv4()
-    this.name = food.name ?? ''
-    this.brand = food.brand ?? ''
-    this.price = food.price ?? 0
-    this.weight = food.weight ?? 0
-    this.ratio = food.ratio ?? 0
+  constructor(feed: Partial<FeedType>) {
+    this.id = feed.id ?? uuidv4()
+    this.name = feed.name ?? ''
+    this.brand = feed.brand ?? ''
+    this.price = feed.price ?? 0
+    this.weight = feed.weight ?? 0
+    this.ratio = feed.ratio ?? 0
   }
 
-  toFirestore(): FoodType {
+  toFirestore(): FeedType {
     return {
       id: this.id,
       name: this.name,

@@ -33,6 +33,7 @@ import { FormHorseComponent } from './pages/horses/form-horse/form-horse.compone
 import { MatSliderModule } from '@angular/material/slider'
 import { HeaderComponent } from './layout/header/header.component'
 import { FormFeedComponent } from './pages/feeds/form-feed/form-feed.component'
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { FormFeedComponent } from './pages/feeds/form-feed/form-feed.component'
     MatToolbarModule,
     ReactiveFormsModule,
     MatSliderModule,
+    MatTableModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService, CookieService],
   bootstrap: [AppComponent],

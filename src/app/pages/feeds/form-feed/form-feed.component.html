@@ -9,8 +9,8 @@
     <form class="my-form" [formGroup]="form" (submit)="validate()">
       <mat-form-field appearance="fill">
         <mat-label>Feed name</mat-label>
-        <input matInput [formControlName]="'feedName'" [readonly]="isReadonly" tabindex="1" required>
-        <mat-error *ngIf="feedName?.errors?.['required']">Merci d'entrer un nom</mat-error>
+        <input matInput [formControlName]="'name'" [readonly]="isReadonly" tabindex="1" required>
+        <mat-error *ngIf="name?.errors?.['required']">Merci d'entrer un nom</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Brand</mat-label>
@@ -35,7 +35,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ratio</mat-label>
-        <span matTextSuffix="">kg</span>
+        <span matTextSuffix="">kg / L</span>
         <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
         <mat-error *ngIf="ratio?.errors?.['min'] || ratio?.errors?.['max']">Doit etre compris entre 0.01 et 100</mat-error>
         <mat-error *ngIf="ratio?.errors?.['pattern']">Doit etre un nombre</mat-error>

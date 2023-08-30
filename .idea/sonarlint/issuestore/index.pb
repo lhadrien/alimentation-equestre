@@ -10,8 +10,6 @@
 angular.json,e/9/e92338c6e49ff34f9022980cc89bbebd60974bad
 ;
 .prettierrc,2/0/20137a9e94744624390b6748bc96df5ca1579b71
-c
-3src/app/layout/navigation/navigation.component.html,0/a/0a92ae8763d19c611f74e3da80bcb2f6bc6f4052
 [
 +src/app/layout/header/header.component.scss,a/8/a8d565b742df3a4412e39ab5f06c1951a5f99575
 Z
@@ -24,8 +22,6 @@ Y
 )src/app/layout/header/header.component.ts,6/b/6b8deed44c9472e7ed194e53c64d042aae015d6b
 [
 +src/app/layout/header/header.component.html,4/9/494850870ec28f0e5da98407175e8c70476d519b
-i
-9src/app/pages/horses/form-horse/form-horse.component.scss,5/b/5b05b1973ee4a629a439093636c4e4d128da169f
 ?
 src/styles.scss,6/a/6a36a191b6d613ce902a6e1beb58b65e8a5136ab
 G

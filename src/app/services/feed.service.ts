@@ -33,15 +33,15 @@ export class FeedService {
     }
   }
 
-  getFeeds(): { [key: string]: Feed } {
+  getFeeds(): Feed[] {
     const user: UserData | null = this.userService.getUserData()
-    let feeds: { [key: string]: Feed } = {}
+    let feeds: Feed[] = []
     if (user?.feeds) {
       Object.keys(user.feeds).forEach((feedId) => {
-        feeds[feedId] = new Feed(user.feeds[feedId])
+        feeds.push(new Feed(user.feeds[feedId]))
       })
     }
 
-    return feeds ?? {}
+    return feeds ?? []
   }
 }
