@@ -3,9 +3,6 @@
 .editorconfig,6/2/626a747c8694eaae66f2afb3d1a745b045782c70
 ;
 .firebaserc,3/6/368d8a929a4bff0376a597a4de99b28a56e8efc3
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 <
 angular.json,e/9/e92338c6e49ff34f9022980cc89bbebd60974bad
 ;

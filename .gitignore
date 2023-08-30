@@ -12,7 +12,8 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-alim/.idea/
+alim/
+.idea/
 .project
 .classpath
 .c9/
