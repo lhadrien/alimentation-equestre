@@ -20,9 +20,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component'
 import { MenusComponent } from './pages/menus/menus.component'
 import { FeedsComponent } from './pages/feeds/feeds.component'
 import { HorsesComponent } from './pages/horses/horses.component'
-import { AddMenuComponent } from './pages/menus/add-menu/add-menu.component'
-import { EditMenuComponent } from './pages/menus/edit-menu/edit-menu.component'
-import { MenuComponent } from './pages/menus/menu/menu.component'
+import { FormMenuComponent } from './pages/menus/form-menu/form-menu.component'
 import { MatInputModule } from '@angular/material/input'
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -46,9 +44,7 @@ import { MatSelectModule } from '@angular/material/select'
     MenusComponent,
     FeedsComponent,
     HorsesComponent,
-    AddMenuComponent,
-    EditMenuComponent,
-    MenuComponent,
+    FormMenuComponent,
     ErrorComponent,
     FormHorseComponent,
     HeaderComponent,

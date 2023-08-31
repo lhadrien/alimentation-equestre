@@ -7,9 +7,10 @@ import {
   UserCredential,
 } from '@angular/fire/auth'
 import { collection, doc, DocumentSnapshot, Firestore, getDoc, setDoc } from '@angular/fire/firestore'
-import { Horse } from '../entity/horse'
+import { HorseList } from '../entity/horse'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Feed } from '../entity/feed'
+import { FeedList } from '../entity/feed'
+import { MealList } from '../entity/meal'
 
 export type LoggedUser = {
   name: string
@@ -17,9 +18,9 @@ export type LoggedUser = {
 }
 
 export type UserData = {
-  horses: { [key: string]: Horse }
-  feeds: { [key: string]: Feed }
-  menus: []
+  horses: HorseList
+  feeds: FeedList
+  meals: MealList
 }
 
 @Injectable({
@@ -39,8 +40,8 @@ export class UserService {
         this.getFirebaseUser(user.uid).then(() => {
           console.log('[onAuthStateChanged] Get User firebase done')
         })
-        this.email = user.email || ''
-        this.displayName = user.displayName || ''
+        this.email = user.email ?? ''
+        this.displayName = user.displayName ?? ''
       } else {
         console.log('[onAuthStateChanged] Disconnected')
         this.idUser = null
@@ -51,8 +52,8 @@ export class UserService {
     const user = auth.currentUser
     if (user !== null) {
       console.log('[UserService startup] Is already connected')
-      this.displayName = user.displayName || ''
-      this.email = user.email || ''
+      this.displayName = user.displayName ?? ''
+      this.email = user.email ?? ''
 
       // The user's ID, unique to the Firebase project. Do NOT use
       // this value to authenticate with your backend server, if
@@ -84,7 +85,7 @@ export class UserService {
         user: user,
         horses: {},
         feeds: {},
-        menus: [],
+        meals: {},
       } as UserData)
       console.log('[saveFirebaseUser] Saved Firebase user')
     } else {

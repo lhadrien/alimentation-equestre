@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core'
 import { UserData, UserService } from './user.service'
 import { collection, deleteField, doc, Firestore, updateDoc } from '@angular/fire/firestore'
-import { Feed, FeedList } from '../entity/feed'
+import { Meal, MealList } from '../entity/menu'
 
 @Injectable({
   providedIn: 'root',
 })
-export class FeedService {
+export class MealService {
   constructor(private userService: UserService, private afs: Firestore) {}
 
-  async saveFeed(feed: Feed): Promise<boolean> {
-    console.log('[saveFeed FeedService] Saving feed...', feed)
-    if (feed !== null && this.userService.idUser !== null) {
+  async saveMeal(meal: Meal): Promise<boolean> {
+    console.log('[saveMeal MealService] Saving meal...', meal)
+    if (meal !== null && this.userService.idUser !== null) {
       try {
         await updateDoc(doc(collection(this.afs, 'userdata'), this.userService.idUser), {
-          ['feeds.' + feed.id]: feed.toFirestore(),
+          ['meals.' + meal.id]: meal.toFirestore(),
         })
         return true
       } catch (error) {
@@ -25,23 +25,23 @@ export class FeedService {
     return false
   }
 
-  async deleteFeed(feed: Feed) {
-    if (feed !== null && this.userService.idUser !== null) {
+  async deleteMeal(meal: Meal) {
+    if (meal !== null && this.userService.idUser !== null) {
       await updateDoc(doc(collection(this.afs, 'userdata'), this.userService.idUser), {
-        ['feeds.' + feed.id]: deleteField(),
+        ['meals.' + meal.id]: deleteField(),
       })
     }
   }
 
-  getFeeds(): FeedList {
+  getMeals(): MealList {
     const user: UserData | null = this.userService.getUserData()
-    let feeds: FeedList = {}
-    if (user?.feeds) {
-      Object.keys(user.feeds).forEach((feedId) => {
-        feeds[feedId] = new Feed(user.feeds[feedId])
+    let meals: MealList = {}
+    if (user?.meals) {
+      Object.keys(user.feeds).forEach((mealId) => {
+        meals[mealId] = new Meal(user.feeds[mealId])
       })
     }
 
-    return feeds ?? {}
+    return meals ?? {}
   }
 }
