@@ -11,9 +11,9 @@ import { FeedDataSource } from './form-feed/feed-data-source'
 export class FeedsComponent {
   selectedFeed: Feed | undefined
   private displayNewFeed: boolean = false
-  public feeds: Feed[]
+  public feeds: { [key: string]: Feed } = {}
   displayedColumns: string[] = ['name', 'brand', 'price', 'weight', 'ratio']
-  feedsSource = new FeedDataSource([])
+  feedsSource = new FeedDataSource({})
 
   constructor(private feedService: FeedService) {
     this.feeds = this.feedService.getFeeds()
@@ -31,23 +31,26 @@ export class FeedsComponent {
     this.selectedFeed = feed
   }
 
-  deleteFeed(feed: Feed) {
+  deleteFeed(feed: Feed): void {
     this.feedService.deleteFeed(feed).then()
-    this.feeds = this.feeds.filter((f) => f.id !== feed.id)
+    delete this.feeds[feed.id]
     this.feedsSource.setData(this.feeds)
+    this.selectedFeed = undefined
   }
 
-  addFeedToList(feed: Feed) {
+  addFeedToList(feed: Feed): void {
     this.displayNewFeed = false
-    this.feeds.push(feed)
+    this.feeds[feed.id] = feed
     this.feedsSource.setData(this.feeds)
   }
 
-  feedSelected(id: string) {
+  feedSelected(id: string): void {
     console.log('[feedSelected FeedsComponent] clicked on :' + id)
-    this.selectedFeed = this.feeds.find((f) => f.id === id)
+    this.selectedFeed = this.feeds[id]
     console.log('[feedSelected FeedsComponent] clicked on', this.selectedFeed)
   }
 
-  protected readonly Feed = Feed
+  hasFeeds(): boolean {
+    return Object.keys(this.feeds).length > 0
+  }
 }

@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="867b4145-f878-4b50-874c-761f70094cb8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0f1a0b97e95e1e6851637d9b382e6810eb6cd954" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7ef415b15eca9ba276c3f63c60eaa6398968ffb8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a0958b8e3f8026cb12704302bf5e2d3708ac0070" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/entity/feed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/entity/feed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/entity/horse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/entity/horse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout/navigation/navigation.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/navigation/navigation.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/feeds/feeds.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/feeds/feeds.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/feeds/feeds.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/feeds/feeds.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/feed-data-source.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/feed-data-source.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/form-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/form-feed.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/form-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/feeds/form-feed/form-feed.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/horses/horses.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/horses/horses.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/feed.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/feed.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/food.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/feed.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/horse.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/horse.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +41,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2KMStw3IEVTcqMcQy6qXP7fzXFT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -38,29 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/ardbeg/WebstormProjects/alimentation-equestre",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/ardbeg/WebstormProjects/alimentation-equestre/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/ardbeg/WebstormProjects/alimentation-equestre/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ardbeg/WebstormProjects/alimentation-equestre&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/ardbeg/WebstormProjects/alimentation-equestre/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/ardbeg/WebstormProjects/alimentation-equestre/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JSON"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JSON&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
@@ -110,6 +124,8 @@
       <workItem from="1677695515439" duration="3321000" />
       <workItem from="1678093152239" duration="4000" />
       <workItem from="1693421068878" duration="8867000" />
+      <workItem from="1693461972742" duration="18000" />
+      <workItem from="1693475412122" duration="2314000" />
     </task>
     <servers />
   </component>

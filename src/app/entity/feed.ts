@@ -9,6 +9,8 @@ export type FeedType = {
   ratio: number
 }
 
+export type FeedList = { [key: string]: Feed }
+
 export class Feed {
   public id: string
   public name: string

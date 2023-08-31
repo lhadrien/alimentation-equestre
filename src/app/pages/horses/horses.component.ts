@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { HorseService } from '../../services/horse.service'
-import { Horse } from '../../entity/horse'
+import { Horse, HorseList } from '../../entity/horse'
 
 @Component({
   selector: 'app-horses',
@@ -8,7 +8,7 @@ import { Horse } from '../../entity/horse'
   styleUrls: ['./horses.component.scss'],
 })
 export class HorsesComponent {
-  public horses: { [key: string]: Horse }
+  public horses: HorseList
   public displayNewHorse: boolean = false
 
   constructor(private horseService: HorseService) {

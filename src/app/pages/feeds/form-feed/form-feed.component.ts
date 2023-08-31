@@ -34,7 +34,14 @@ export class FormFeedComponent implements OnInit, OnChanges {
   })
 
   ngOnInit(): void {
-    console.log(this.feed)
+    this.updateForm()
+  }
+
+  ngOnChanges(): void {
+    this.updateForm()
+  }
+
+  updateForm() {
     if (this.feed.name === undefined || this.feed.name === null || this.feed.name === '') {
       this.isReadonly = false
       this.isCreated = false
@@ -42,11 +49,6 @@ export class FormFeedComponent implements OnInit, OnChanges {
       this.isCreated = true
     }
     this.form.patchValue(this.feed)
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.form.patchValue(this.feed)
-    console.log('Changes detected:', changes)
   }
 
   get name(): AbstractControl<any, any> | null {
@@ -62,7 +64,7 @@ export class FormFeedComponent implements OnInit, OnChanges {
     return this.form.get('weight')
   }
   get ratio(): AbstractControl<any, any> | null {
-    return this.form.get('feedName')
+    return this.form.get('ratio')
   }
 
   async validate() {

@@ -1,11 +1,11 @@
 import { DataSource } from '@angular/cdk/collections'
-import { Feed } from '../../../entity/feed'
+import { Feed, FeedList } from '../../../entity/feed'
 import { Observable, ReplaySubject } from 'rxjs'
 
 export class FeedDataSource extends DataSource<Feed> {
   private _dataStream = new ReplaySubject<Feed[]>()
 
-  constructor(initialData: Feed[]) {
+  constructor(initialData: FeedList) {
     super()
     this.setData(initialData)
   }
@@ -16,7 +16,7 @@ export class FeedDataSource extends DataSource<Feed> {
 
   disconnect() {}
 
-  setData(data: Feed[]) {
-    this._dataStream.next(data)
+  setData(data: FeedList) {
+    this._dataStream.next(Object.values(data))
   }
 }

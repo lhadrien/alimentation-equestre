@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { collection, deleteField, doc, Firestore, updateDoc } from '@angular/fire/firestore'
 import { UserData, UserService } from './user.service'
-import { Horse } from '../entity/horse'
+import { Horse, HorseList } from '../entity/horse'
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +33,7 @@ export class HorseService {
     }
   }
 
-  getHorses(): { [key: string]: Horse } {
+  getHorses(): HorseList {
     const user: UserData | null = this.userService.getUserData()
     let horses: { [key: string]: Horse } = {}
     if (user?.horses) {

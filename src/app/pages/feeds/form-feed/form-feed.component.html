@@ -36,7 +36,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Ratio</mat-label>
         <span matTextSuffix="">kg / L</span>
-        <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
+        <input matInput [formControlName]="'ratio'" [readonly]="isReadonly" tabindex="4">
         <mat-error *ngIf="ratio?.errors?.['min'] || ratio?.errors?.['max']">Doit etre compris entre 0.01 et 100</mat-error>
         <mat-error *ngIf="ratio?.errors?.['pattern']">Doit etre un nombre</mat-error>
       </mat-form-field>

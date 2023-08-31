@@ -9,7 +9,7 @@
     </div>
   </div>
 </section>
-<section *ngIf="feeds.length">
+<section *ngIf="hasFeeds()">
   <table mat-table [dataSource]="feedsSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
