@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { Feed } from '../../entity/feed'
 import { FeedService } from '../../services/feed.service'
-import { FeedDataSource } from './form-feed/feed-data-source'
+import { FeedDataSource } from './feed-data-source'
 
 @Component({
   selector: 'app-feeds',

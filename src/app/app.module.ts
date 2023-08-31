@@ -17,10 +17,10 @@ import { MatButtonModule } from '@angular/material/button'
 import { LoginComponent } from './pages/login/login.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
-import { MenusComponent } from './pages/menus/menus.component'
+import { MealsComponent } from './pages/meals/meals.component'
 import { FeedsComponent } from './pages/feeds/feeds.component'
 import { HorsesComponent } from './pages/horses/horses.component'
-import { FormMenuComponent } from './pages/menus/form-menu/form-menu.component'
+import { FormMealComponent } from './pages/meals/form-meal/form-meal.component'
 import { MatInputModule } from '@angular/material/input'
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -41,10 +41,10 @@ import { MatSelectModule } from '@angular/material/select'
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    MenusComponent,
+    MealsComponent,
     FeedsComponent,
     HorsesComponent,
-    FormMenuComponent,
+    FormMealComponent,
     ErrorComponent,
     FormHorseComponent,
     HeaderComponent,

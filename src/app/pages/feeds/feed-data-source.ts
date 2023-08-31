@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/collections'
-import { Feed, FeedList } from '../../../entity/feed'
+import { Feed, FeedList } from '../../entity/feed'
 import { Observable, ReplaySubject } from 'rxjs'
 
 export class FeedDataSource extends DataSource<Feed> {

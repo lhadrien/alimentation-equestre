@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
-import { MenusComponent } from './pages/menus/menus.component'
+import { MealsComponent } from './pages/meals/meals.component'
 import { SignedinGuard } from './signedin.guard'
 import { FeedsComponent } from './pages/feeds/feeds.component'
 import { HorsesComponent } from './pages/horses/horses.component'
@@ -25,7 +25,7 @@ const routes: Routes = [
     children: [
       {
         path: 'menus',
-        component: MenusComponent,
+        component: MealsComponent,
       },
       {
         path: 'feeds',

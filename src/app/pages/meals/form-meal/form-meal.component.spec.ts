@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { FormMenuComponent } from './form-menu.component'
+import { FormMealComponent } from './form-meal.component'
 
 describe('MenuComponent', () => {
-  let component: FormMenuComponent
-  let fixture: ComponentFixture<FormMenuComponent>
+  let component: FormMealComponent
+  let fixture: ComponentFixture<FormMealComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormMenuComponent],
+      declarations: [FormMealComponent],
     }).compileComponents()
 
-    fixture = TestBed.createComponent(FormMenuComponent)
+    fixture = TestBed.createComponent(FormMealComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

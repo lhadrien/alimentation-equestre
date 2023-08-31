@@ -1,0 +1,29 @@
+<section class="flex mb-40 container">
+  <button mat-fab color="primary" aria-label="Ajouter un menu" (click)="addMeal()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <div class="my-form shrink flex">
+    <div *ngIf="selectedMeal !== undefined">
+      <app-form-menu [meal]="selectedMeal!" (deleteMeal)="deleteMeal($event)"
+        (createdMeal)="addMealToList($event)"></app-form-menu>
+    </div>
+  </div>
+</section>
+<section *ngIf="hasMeals()">
+  <table mat-table [dataSource]="mealsSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nom</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="mealSelected(row.id)"></tr>
+  </table>
+
+
+</section>
