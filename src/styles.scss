@@ -33,9 +33,15 @@ body {
 .mb-10 {
   margin-bottom:10px;
 }
+.ml-10 {
+  margin-left:10px;
+}
 .container {
   //justify-content: space-between;
 }
 .container > *:not(:last-child) {
   margin-right: 40px;
+}
+.mat-mdc-form-field-infix {
+  width: auto !important;
 }

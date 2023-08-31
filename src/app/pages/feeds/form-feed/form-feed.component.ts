@@ -31,6 +31,7 @@ export class FormFeedComponent implements OnInit, OnChanges {
     price: new FormControl('', [Validators.min(0), Validators.max(1000), Validators.pattern(/^\d*\.?\d*$/)]),
     weight: new FormControl('', [Validators.min(0.1), Validators.max(1000), Validators.pattern(/^\d*\.?\d*$/)]),
     ratio: new FormControl('', [Validators.min(0.01), Validators.max(100), Validators.pattern(/^\d*\.?\d*$/)]),
+    unit: new FormControl('', Validators.required),
   })
 
   ngOnInit(): void {
@@ -67,12 +68,17 @@ export class FormFeedComponent implements OnInit, OnChanges {
     return this.form.get('ratio')
   }
 
+  get unit(): AbstractControl<any, any> | null {
+    return this.form.get('unit')
+  }
+
   async validate() {
     this.feed.name = String(this.name?.value)
     this.feed.brand = String(this.brand?.value)
     this.feed.price = Number(this.price?.value)
     this.feed.weight = Number(this.weight?.value)
     this.feed.ratio = Number(this.ratio?.value)
+    this.feed.unit = String(this.unit?.value) === 'kg' ? 'kg' : 'L'
     try {
       const res: boolean = await this.feedService.saveFeed(this.feed)
       if (res) {

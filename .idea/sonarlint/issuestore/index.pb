@@ -19,8 +19,6 @@ Y
 )src/app/layout/header/header.component.ts,6/b/6b8deed44c9472e7ed194e53c64d042aae015d6b
 [
 +src/app/layout/header/header.component.html,4/9/494850870ec28f0e5da98407175e8c70476d519b
-?
-src/styles.scss,6/a/6a36a191b6d613ce902a6e1beb58b65e8a5136ab
 A
 tsconfig.app.json,4/3/43dc209d69db416f8cba4f9850ff857de70532a2
 =

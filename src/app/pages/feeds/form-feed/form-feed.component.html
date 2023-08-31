@@ -25,14 +25,25 @@
         <mat-error *ngIf="price?.errors?.['max']">Prix excessif</mat-error>
         <mat-error *ngIf="price?.errors?.['pattern']">Doit etre un nombre</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Weight</mat-label>
-        <span matTextSuffix="">kg</span>
-        <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
-        <mat-error *ngIf="weight?.errors?.['min']">Poids trop faible</mat-error>
-        <mat-error *ngIf="weight?.errors?.['max']">Poids trop lourd</mat-error>
-        <mat-error *ngIf="weight?.errors?.['pattern']">Doit etre un nombre</mat-error>
-      </mat-form-field>
+      <div class="flex">
+        <div class="grow">
+          <mat-form-field appearance="fill">
+            <mat-label>Weight</mat-label>
+            <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="4">
+            <mat-error *ngIf="weight?.errors?.['min']">Poids trop faible</mat-error>
+            <mat-error *ngIf="weight?.errors?.['max']">Poids trop lourd</mat-error>
+            <mat-error *ngIf="weight?.errors?.['pattern']">Doit etre un nombre</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="shrink ml-10">
+          <mat-form-field appearance="fill">
+            <mat-select [formControlName]="'unit'" tabindex="5">
+              <mat-option value="kg">kg</mat-option>
+              <mat-option value="L">L</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
       <mat-form-field appearance="fill">
         <mat-label>Ratio</mat-label>
         <span matTextSuffix="">kg / L</span>

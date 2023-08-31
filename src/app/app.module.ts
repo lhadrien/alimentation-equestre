@@ -34,6 +34,7 @@ import { MatSliderModule } from '@angular/material/slider'
 import { HeaderComponent } from './layout/header/header.component'
 import { FormFeedComponent } from './pages/feeds/form-feed/form-feed.component'
 import { MatTableModule } from '@angular/material/table'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MatTableModule } from '@angular/material/table'
     ReactiveFormsModule,
     MatSliderModule,
     MatTableModule,
+    MatSelectModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService, CookieService],
   bootstrap: [AppComponent],

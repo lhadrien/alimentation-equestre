@@ -12,7 +12,7 @@ export class FeedsComponent {
   selectedFeed: Feed | undefined
   private displayNewFeed: boolean = false
   public feeds: { [key: string]: Feed } = {}
-  displayedColumns: string[] = ['name', 'brand', 'price', 'weight', 'ratio']
+  displayedColumns: string[] = ['name', 'brand', 'price', 'weight', 'unit', 'ratio']
   feedsSource = new FeedDataSource({})
 
   constructor(private feedService: FeedService) {
