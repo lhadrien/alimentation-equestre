@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Feed } from '../../entity/feed'
+import { Feed, FeedList } from '../../entity/feed'
 import { FeedService } from '../../services/feed.service'
 import { FeedDataSource } from './feed-data-source'
 
@@ -11,7 +11,7 @@ import { FeedDataSource } from './feed-data-source'
 export class FeedsComponent {
   selectedFeed: Feed | undefined
   private displayNewFeed: boolean = false
-  public feeds: { [key: string]: Feed } = {}
+  public feeds: FeedList = {}
   displayedColumns: string[] = ['name', 'brand', 'price', 'weight', 'unit', 'ratio']
   feedsSource = new FeedDataSource({})
 

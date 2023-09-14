@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Meal } from '../../entity/meal'
+import { Meal, MealList } from '../../entity/meal'
 import { MealDataSource } from './meal-data-source'
 import { MealService } from '../../services/meal.service'
 
@@ -11,8 +11,8 @@ import { MealService } from '../../services/meal.service'
 export class MealsComponent {
   selectedMeal: Meal | undefined
   private displayNewMeal: boolean = false
-  public meals: { [key: string]: Meal } = {}
-  displayedColumns: string[] = ['name', 'brand', 'price', 'weight', 'unit', 'ratio']
+  public meals: MealList = {}
+  displayedColumns: string[] = ['name']
   mealsSource = new MealDataSource({})
 
   constructor(private mealService: MealService) {

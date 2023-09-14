@@ -1,1 +1,28 @@
-<p>menu works!</p>
+<form [formGroup]="mealForm" (submit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Meal Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <div formArrayName="feedComponents" *ngFor="let feedCtrl of feedComponents.controls; let i = index">
+    <div [formGroupName]="i">
+      <mat-form-field appearance="fill">
+        <mat-label>Select Feed</mat-label>
+        <mat-select formControlName="feedId">
+          <mat-option *ngFor="let feed of feeds" [value]="feed.id">{{ feed.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input matInput formControlName="quantity">
+      </mat-form-field>
+
+      <button mat-button (click)="removeFeedComponent(i)">Remove</button>
+    </div>
+  </div>
+
+  <button mat-button (click)="addFeedComponent()">Add Feed Component</button>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core'
 import { Feed } from '../../../entity/feed'
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms'
 import { FeedService } from '../../../services/feed.service'
