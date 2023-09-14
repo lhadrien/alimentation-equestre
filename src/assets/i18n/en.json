@@ -1,3 +1,50 @@
 {
-  "works": "works"
+  "works": "works",
+  "form-feed": {
+    "title": {
+      "add": "Add a feed",
+      "view": "Feed card",
+      "edit": "Edit feed"
+    },
+    "name": {
+      "label": "Feed name",
+      "error": {
+        "required": "Please enter a name"
+      }
+    },
+    "brand": {
+      "label": "Brand",
+      "error": {
+        "maxlength": "The name must be smaller"
+      }
+    },
+    "price": {
+      "label": "Price",
+      "error": {
+        "min": "Price too low",
+        "max": "Price too expensive",
+        "pattern": "Must be a number"
+      }
+    },
+    "weight": {
+      "label": "Weight",
+      "error": {
+        "min": "Weight too light",
+        "max": "Weight too heavy",
+        "pattern": "Must be a number"
+      }
+    },
+    "ratio": {
+      "label": "Ratio",
+      "error": {
+        "min-max": "Must be between 0.01 and 100",
+        "pattern": "Must be a number"
+      }
+    },
+    "button": {
+      "validate": "Validate",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  }
 }

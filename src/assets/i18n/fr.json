@@ -1,3 +1,50 @@
 {
-  "works": "fonctionne"
+  "works": "fonctionne",
+  "form-feed": {
+    "title": {
+      "add": "Ajouter un aliment",
+      "view": "Carte de l'aliment",
+      "edit": "Editer l'aliment"
+    },
+    "name": {
+      "label": "Nom de l'aliment",
+      "error": {
+        "required": "Merci d'entrer un nom"
+      }
+    },
+    "brand": {
+      "label": "Marque",
+      "error": {
+        "maxlength": "Le nom doit etre moins grand"
+      }
+    },
+    "price": {
+      "label": "Prix",
+      "error": {
+        "min": "Prix trop bas",
+        "max": "Prix excessif",
+        "pattern": "Doit être un nombre"
+      }
+    },
+    "weight": {
+      "label": "Poids",
+      "error": {
+        "min": "Poids trop faible",
+        "max": "Poids trop lourd",
+        "pattern": "Doit être un nombre"
+      }
+    },
+    "ratio": {
+      "label": "Ratio",
+      "error": {
+        "min-max": "Doit etre compris entre 0.01 et 100",
+        "pattern": "Doit être un nombre"
+      }
+    },
+    "button": {
+      "validate": "Valider",
+      "edit": "Editer",
+      "delete": "Supprimer"
+    }
+  }
 }
