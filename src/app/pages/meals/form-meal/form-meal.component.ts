@@ -1,43 +1,84 @@
-import { Component, OnInit } from '@angular/core'
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { FeedList } from '../../../entity/feed'
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core'
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { Feed, FeedList } from '../../../entity/feed'
 import { FeedService } from '../../../services/feed.service'
+import { Meal } from '../../../entity/meal'
 
 @Component({
   selector: 'app-form-meal',
   templateUrl: './form-meal.component.html',
   styleUrls: ['./form-meal.component.scss'],
 })
-export class FormMealComponent implements OnInit {
-  mealForm: FormGroup
-  feeds: FeedList = {}
+export class FormMealComponent implements OnInit, OnChanges {
+  @Input()
+  meal!: Meal
+
+  @Output()
+  deleteMeal = new EventEmitter<Meal>()
+
+  @Output()
+  createdMeal = new EventEmitter<Meal>()
+
+  @Input()
+  isReadonly: boolean = true
+
+  form: FormGroup
+  feeds: Feed[] = []
+  isCreated: boolean = false
 
   constructor(private fb: FormBuilder, private feedService: FeedService) {
     // Initialize form group
-    this.mealForm = this.fb.group({
+    this.form = this.fb.group({
       name: ['', Validators.required],
       feedComponents: this.fb.array([]),
     })
   }
 
   ngOnInit(): void {
-    // Fetch feeds, assuming feedService.getAllFeeds() returns an observable of Feed[]
-    this.feeds = this.feedService.getFeeds()
+    const feedList: FeedList = this.feedService.getFeeds()
+    this.feeds = Object.values(feedList)
+    this.updateForm()
+  }
+
+  ngOnChanges(): void {
+    this.updateForm()
+  }
+
+  updateForm() {
+    if (this.meal.name === undefined || this.meal.name === null || this.meal.name === '') {
+      this.isReadonly = false
+      this.isCreated = false
+    } else {
+      this.isCreated = true
+    }
+    this.form.patchValue(this.meal)
   }
 
   // Getters
   get feedComponents(): FormArray {
-    return this.mealForm.get('feedComponents') as FormArray
+    return this.form.get('feedComponents') as FormArray
   }
 
   // Add a feed component
   addFeedComponent(): void {
     const feedComponent = this.fb.group({
       feedId: ['', Validators.required],
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      quantity: [
+        '',
+        [Validators.required, Validators.min(0.001), Validators.max(1000), Validators.pattern(/^\d*\.?\d*$/)],
+      ],
+      unit: new FormControl('', Validators.required),
     })
 
     this.feedComponents.push(feedComponent)
+  }
+
+  get name(): AbstractControl<any, any> | null {
+    return this.form.get('name')
+  }
+
+  quantity(formCtrl: AbstractControl): AbstractControl<any, any> | null {
+    return formCtrl.get('quantity')
   }
 
   // Remove a feed component
@@ -47,9 +88,17 @@ export class FormMealComponent implements OnInit {
 
   // Form submission
   onSubmit(): void {
-    if (this.mealForm.valid) {
+    if (this.form.valid) {
       // You can now send the form value to your backend
-      console.log('Meal Form Value', this.mealForm.value)
+      console.log('Meal Form Value', this.form.value)
     }
+  }
+
+  delete() {
+    this.deleteMeal.emit(this.meal)
+  }
+
+  edit() {
+    this.isReadonly = false
   }
 }

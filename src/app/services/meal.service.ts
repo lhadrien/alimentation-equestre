@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { UserData, UserService } from './user.service'
 import { collection, deleteField, doc, Firestore, updateDoc } from '@angular/fire/firestore'
-import { Meal, MealList } from '../entity/menu'
+import { Meal, MealList } from '../entity/meal'
 
 @Injectable({
   providedIn: 'root',

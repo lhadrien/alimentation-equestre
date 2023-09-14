@@ -4,8 +4,8 @@
   </button>
   <div class="my-form shrink flex">
     <div *ngIf="selectedMeal !== undefined">
-      <app-form-menu [meal]="selectedMeal!" (deleteMeal)="deleteMeal($event)"
-        (createdMeal)="addMealToList($event)"></app-form-menu>
+      <app-form-meal [meal]="selectedMeal!" (deleteMeal)="deleteMeal($event)"
+        (createdMeal)="addMealToList($event)"></app-form-meal>
     </div>
   </div>
 </section>

@@ -4,9 +4,9 @@ import { MealDataSource } from './meal-data-source'
 import { MealService } from '../../services/meal.service'
 
 @Component({
-  selector: 'app-menus',
-  templateUrl: './menus.component.html',
-  styleUrls: ['./menus.component.scss'],
+  selector: 'app-meals',
+  templateUrl: './meals.component.html',
+  styleUrls: ['./meals.component.scss'],
 })
 export class MealsComponent {
   selectedMeal: Meal | undefined
