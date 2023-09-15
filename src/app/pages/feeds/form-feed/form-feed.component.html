@@ -51,9 +51,9 @@
         <mat-error *ngIf="ratio?.errors?.['min'] || ratio?.errors?.['max']">{{ 'form-feed.ratio.error.min-max' | translate }}</mat-error>
         <mat-error *ngIf="ratio?.errors?.['pattern']">{{ 'form-feed.ratio.error.pattern' | translate }}</mat-error>
       </mat-form-field>
-      <button *ngIf="!isReadonly" type="submit" tabindex="5" mat-raised-button color="accent">{{ 'form-feed.button.validate' | translate }}</button>
-      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="6" mat-raised-button color="accent">{{ 'form-feed.button.edit' | translate }}</button>
-      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="7" mat-raised-button>{{ 'form-feed.button.delete' | translate }}</button>
+      <button *ngIf="!isReadonly" type="submit" tabindex="5" mat-raised-button color="accent">{{ 'form.button.validate' | translate }}</button>
+      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="6" mat-raised-button color="accent">{{ 'form.button.edit' | translate }}</button>
+      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="7" mat-raised-button>{{ 'form.button.delete' | translate }}</button>
     </form>
 
   </mat-card-content>

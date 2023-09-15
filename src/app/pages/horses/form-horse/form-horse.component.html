@@ -1,67 +1,67 @@
 <mat-card class="card-my-form">
   <mat-card-header class="mb-10">
-    <mat-card-title *ngIf="!isReadonly && !isCreated">Ajouter un cheval</mat-card-title>
-    <mat-card-title *ngIf="isReadonly && isCreated">Carte du cheval</mat-card-title>
-    <mat-card-title *ngIf="!isReadonly && isCreated">Editer mon cheval</mat-card-title>
+    <mat-card-title *ngIf="!isReadonly && !isCreated">{{ 'form-horse.title.add' | translate }}</mat-card-title>
+    <mat-card-title *ngIf="isReadonly && isCreated">{{ 'form-horse.title.view' | translate }}</mat-card-title>
+    <mat-card-title *ngIf="!isReadonly && isCreated">{{ 'form-horse.title.edit' | translate }}</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="content">
     <form class="my-form" [formGroup]="form" (submit)="validate()">
       <mat-form-field appearance="fill">
-        <mat-label>Nom du cheval</mat-label>
+        <mat-label>{{ 'form-horse.name.label' | translate }}</mat-label>
         <input matInput [formControlName]="'name'" [readonly]="isReadonly" tabindex="1" required>
-        <mat-error *ngIf="name?.errors?.['required']">Veuillez entrer un nom</mat-error>
+        <mat-error *ngIf="name?.errors?.['required']">{{ 'form-horse.name.error.required' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Poids</mat-label>
+        <mat-label>{{ 'form-horse.weight.label' | translate }}</mat-label>
         <span matTextSuffix="">kg</span>
         <input matInput [formControlName]="'weight'" [readonly]="isReadonly" tabindex="2">
-        <mat-error *ngIf="weight?.errors?.['min']">Le poids doit etre supérieur à 50kg</mat-error>
-        <mat-error *ngIf="weight?.errors?.['max']">Le poids doit etre inférieur à 1500kg</mat-error>
-        <mat-error *ngIf="weight?.errors?.['pattern']">Le poids doit etre un chiffre entier</mat-error>
+        <mat-error *ngIf="weight?.errors?.['min']">{{ 'form-horse.weight.error.min' | translate }}</mat-error>
+        <mat-error *ngIf="weight?.errors?.['max']">{{ 'form-horse.weight.error.max' | translate }}</mat-error>
+        <mat-error *ngIf="weight?.errors?.['pattern']">{{ 'form-horse.weight.error.pattern' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Hauteur</mat-label>
+        <mat-label>{{ 'form-horse.height.label' | translate }}</mat-label>
         <span matTextSuffix="">cm</span>
         <input matInput [formControlName]="'height'" [readonly]="isReadonly" tabindex="2">
-        <mat-error *ngIf="height?.errors?.['min']">La hauteur doit etre supérieur à 50cm</mat-error>
-        <mat-error *ngIf="height?.errors?.['max']">La hauteur doit etre inférieur à 200cm</mat-error>
-        <mat-error *ngIf="weight?.errors?.['pattern']">La hauteur doit etre un chiffre entier</mat-error>
+        <mat-error *ngIf="height?.errors?.['min']">{{ 'form-horse.height.error.min' | translate }}</mat-error>
+        <mat-error *ngIf="height?.errors?.['max']">{{ 'form-horse.height.error.max' | translate }}</mat-error>
+        <mat-error *ngIf="weight?.errors?.['pattern']">{{ 'form-horse.height.error.pattern' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Race</mat-label>
+        <mat-label>{{ 'form-horse.race.label' | translate }}</mat-label>
         <input matInput [formControlName]="'race'" [readonly]="isReadonly" tabindex="2" maxlength="50">
-        <mat-error *ngIf="race?.errors?.['maxlength']">Nom trop grand</mat-error>
+        <mat-error *ngIf="race?.errors?.['maxlength']">{{ 'form-horse.race.error.maxlength' | translate }}</mat-error>
       </mat-form-field>
       <div class="form-field">
-        <label for="state">Etat général</label>
+        <label for="state">{{ 'form-horse.state.label' | translate }}</label>
         <mat-slider showTickMarks min="1" max="5" step="1" discrete [displayWith]="formatState">
           <input id="state" [formControlName]="'state'" [readonly]="isReadonly" matSliderThumb>
         </mat-slider>
-        <mat-error *ngIf="state?.errors?.['min']">Etat inconnu</mat-error>
-        <mat-error *ngIf="state?.errors?.['max']">Etat inconnu</mat-error>
-        <mat-error *ngIf="state?.errors?.['required']">L'état général doit etre renseigné</mat-error>
+        <mat-error *ngIf="state?.errors?.['min']">{{ 'form-horse.state.error.min' | translate }}</mat-error>
+        <mat-error *ngIf="state?.errors?.['max']">{{ 'form-horse.state.error.max' | translate }}</mat-error>
+        <mat-error *ngIf="state?.errors?.['required']">{{ 'form-horse.state.error.required' | translate }}</mat-error>
       </div>
       <div class="form-field">
-        <label for="activity">Quantité d'activité</label>
+        <label for="activity">{{ 'form-horse.activity.label' | translate }}</label>
         <mat-slider showTickMarks min="1" max="3" step="1" discrete [displayWith]="formatActivity">
           <input id="activity" [formControlName]="'activity'" [readonly]="isReadonly" matSliderThumb>
         </mat-slider>
-        <mat-error *ngIf="state?.errors?.['min']">Etat inconnu</mat-error>
-        <mat-error *ngIf="state?.errors?.['max']">Etat inconnu</mat-error>
-        <mat-error *ngIf="state?.errors?.['required']">L'état général doit etre renseigné</mat-error>
+        <mat-error *ngIf="state?.errors?.['min']">{{ 'form-horse.activity.error.min' | translate }}</mat-error>
+        <mat-error *ngIf="state?.errors?.['max']">{{ 'form-horse.activity.error.max' | translate }}</mat-error>
+        <mat-error *ngIf="state?.errors?.['required']">{{ 'form-horse.activity.error.required' | translate }}</mat-error>
       </div>
       <mat-form-field appearance="fill">
-        <mat-label>Age</mat-label>
+        <mat-label>{{ 'form-horse.age.label' | translate }}</mat-label>
         <input matInput [formControlName]="'age'" [readonly]="isReadonly" tabindex="2">
-        <mat-error *ngIf="age?.errors?.['min']">L'age doit etre au moins 1 an</mat-error>
-        <mat-error *ngIf="age?.errors?.['max']">L'age ne peut pas etre supérieur a 50 ans</mat-error>
-        <mat-error *ngIf="age?.errors?.['pattern']">L'age doit etre un chiffre entier</mat-error>
+        <mat-error *ngIf="age?.errors?.['min']">{{ 'form-horse.age.error.min' | translate }}</mat-error>
+        <mat-error *ngIf="age?.errors?.['max']">{{ 'form-horse.age.error.max' | translate }}</mat-error>
+        <mat-error *ngIf="age?.errors?.['pattern']">{{ 'form-horse.age.error.pattern' | translate }}</mat-error>
       </mat-form-field>
 
-      <button *ngIf="!isReadonly" type="submit" tabindex="4" mat-raised-button color="accent">Valider</button>
-      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="4" mat-raised-button color="accent">Editer</button>
-      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="5" mat-raised-button>Supprimer</button>
+      <button *ngIf="!isReadonly" type="submit" tabindex="5" mat-raised-button color="accent">{{ 'form.button.validate' | translate }}</button>
+      <button *ngIf="isReadonly" type="button" (click)="edit()" tabindex="6" mat-raised-button color="accent">{{ 'form.button.edit' | translate }}</button>
+      <button *ngIf="!isReadonly && isCreated" type="button" (click)="delete()" tabindex="7" mat-raised-button>{{ 'form.button.delete' | translate }}</button>
     </form>
   </mat-card-content>
 </mat-card>

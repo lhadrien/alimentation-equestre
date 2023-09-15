@@ -1,5 +1,12 @@
 {
   "works": "fonctionne",
+  "form": {
+    "button": {
+      "validate": "Valider",
+      "edit": "Editer",
+      "delete": "Supprimer"
+    }
+  },
   "form-feed": {
     "title": {
       "add": "Ajouter un aliment",
@@ -40,11 +47,79 @@
         "min-max": "Doit etre compris entre 0.01 et 100",
         "pattern": "Doit être un nombre"
       }
+    }
+  },
+  "feed": {
+    "aria-add": "Ajouter un aliment",
+    "table": {
+      "caption": "Liste des aliments enregistrés",
+      "columns": {
+        "name": "Nom",
+        "brand": "Marque",
+        "prix": "Prix",
+        "weight": "Contenance",
+        "unit": "Unité",
+        "ratio": "Ratio"
+      }
+    }
+  },
+  "form-horse": {
+    "title": {
+      "add": "Ajouter un cheval",
+      "view": "Carte du cheval",
+      "edit": "Editer mon cheval"
     },
-    "button": {
-      "validate": "Valider",
-      "edit": "Editer",
-      "delete": "Supprimer"
+    "name": {
+      "label": "Nom du cheval",
+      "error": {
+        "required": "Merci d'entrer un nom"
+      }
+    },
+    "weight": {
+      "label": "Poids",
+      "error": {
+        "min": "Le poids doit etre supérieur à 50kg",
+        "max": "Le poids doit etre inférieur à 1500kg",
+        "pattern": "Doit être un nombre entier"
+      }
+    },
+    "height": {
+      "label": "Hauteur",
+      "error": {
+        "min": "La hauteur doit etre supérieur à 50cm",
+        "max": "La hauteur doit etre inférieur à 200cm",
+        "pattern": "Doit être un nombre entier"
+      }
+    },
+    "race": {
+      "label": "Race",
+      "error": {
+        "maxlength": "Nom trop grand"
+      }
+    },
+    "state": {
+      "label": "Etat général",
+      "error": {
+        "min": "Etat inconnu",
+        "max": "Etat inconnu",
+        "required": "L'état général doit être renseigné"
+      }
+    },
+    "activity": {
+      "label": "Quantité d'activité",
+      "error": {
+        "min": "Activité inconnue",
+        "max": "Activité inconnue",
+        "required": "L'activité doit être renseignée"
+      }
+    },
+    "age": {
+      "label": "Age",
+      "error": {
+        "min": "L'age doit etre au moins 1 an",
+        "max": "L'age ne peut pas etre supérieur a 50 ans",
+        "pattern": "L'age doit etre un chiffre entier"
+      }
     }
   }
 }

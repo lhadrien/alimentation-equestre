@@ -17,6 +17,6 @@ export class FeedDataSource extends DataSource<Feed> {
   disconnect() {}
 
   setData(data: FeedList) {
-    this._dataStream.next(Object.values(data))
+    this._dataStream.next(Object.values(data) as Feed[])
   }
 }

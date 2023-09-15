@@ -1,5 +1,12 @@
 {
   "works": "works",
+  "form": {
+    "button": {
+      "validate": "Validate",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
   "form-feed": {
     "title": {
       "add": "Add a feed",
@@ -40,11 +47,79 @@
         "min-max": "Must be between 0.01 and 100",
         "pattern": "Must be a number"
       }
+    }
+  },
+  "feed": {
+    "aria-add": "add a feed",
+    "table": {
+      "caption": "List of all feeds registered",
+      "columns": {
+        "name": "Name",
+        "brand": "Brand",
+        "prix": "Price",
+        "weight": "Quantity",
+        "unit": "Unit",
+        "ratio": "Ratio"
+      }
+    }
+  },
+  "form-horse": {
+    "title": {
+      "add": "Add a horse",
+      "view": "Horse card",
+      "edit": "Edit my horse"
     },
-    "button": {
-      "validate": "Validate",
-      "edit": "Edit",
-      "delete": "Delete"
+    "name": {
+      "label": "Horse name",
+      "error": {
+        "required": "Please enter a name"
+      }
+    },
+    "weight": {
+      "label": "Weight",
+      "error": {
+        "min": "The weight must be >= 50kg",
+        "max": "The weight must be <= 1500kg",
+        "pattern": "Must be an integer"
+      }
+    },
+    "height": {
+      "label": "Height",
+      "error": {
+        "min": "The height must be >= 50cm",
+        "max": "The height must be <= 200cm",
+        "pattern": "Must be an integer"
+      }
+    },
+    "race": {
+      "label": "Race",
+      "error": {
+        "maxlength": "Name too long"
+      }
+    },
+    "state": {
+      "label": "General state",
+      "error": {
+        "min": "State unknown",
+        "max": "State unknown",
+        "required": "State is required"
+      }
+    },
+    "activity": {
+      "label": "Activity",
+      "error": {
+        "min": "Activity unknown",
+        "max": "Activity unknown",
+        "required": "Activity is required"
+      }
+    },
+    "age": {
+      "label": "Age",
+      "error": {
+        "min": "Must be older than 1",
+        "max": "Must be younger than 50",
+        "pattern": "Must be an integer"
+      }
     }
   }
 }
