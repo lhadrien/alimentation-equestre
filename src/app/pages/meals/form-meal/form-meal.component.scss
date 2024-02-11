@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  max-width: 400px;
+  width: 400px;
+  margin-bottom: 21px;
 }
 .content {
   padding-top:20px;
@@ -18,4 +19,7 @@ button {
 }
 .mat-mdc-form-field-infix {
   width: auto;
+}
+.feed-component {
+
 }

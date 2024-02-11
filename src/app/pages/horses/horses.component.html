@@ -1,7 +1,11 @@
 <div class="mb-40 flex row container">
-  <button mat-fab color="primary" aria-label="Ajouter un cheval" (click)="addHorse()">
+  <button mat-fab color="primary" [attr.aria-label]="'horse.aria-add' | translate" (click)="addHorse()">
     <mat-icon>add</mat-icon>
   </button>
-  <app-form-horse [horse]="horse.value" *ngFor="let horse of horses | keyvalue" (deleteHorse)="deleteHorse($event)" (createdHorse)="addHorseToList($event)"></app-form-horse>
-
+  <app-form-horse
+    [horse]="horse.value"
+    *ngFor="let horse of horses | keyvalue"
+    (deleteHorse)="deleteHorse($event)"
+    (createdHorse)="addHorseToList($event)"
+  ></app-form-horse>
 </div>

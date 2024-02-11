@@ -99,3 +99,11 @@ f
 6src/app/pages/meals/form-meal/form-meal.component.html,1/b/1be585d4acf315ac3ee055e94ca3ec39e573c027
 d
 4src/app/pages/meals/form-meal/form-meal.component.ts,f/5/f58aca1f401e0ddf94d658e8f9c867ea2325e303
+Z
+*src/app/pages/horses/horses.component.html,5/0/5081f29ec93b64307a60140e404eaa074d4bf399
+G
+src/assets/i18n/fr.json,4/e/4e8dd73f7b97e24238a9d7714138b5e7fd72cc6e
+G
+src/assets/i18n/en.json,8/b/8b6a462aa04616b27e55711ab3f02697c2c53ff9
+X
+(src/app/pages/login/login.component.html,1/d/1dcbd6012d665d15468db3a034e9e4626bd8a142

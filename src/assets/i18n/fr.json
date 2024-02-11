@@ -121,5 +121,28 @@
         "pattern": "L'age doit etre un chiffre entier"
       }
     }
+  },
+  "horse": {
+    "aria-add": "Ajouter un cheval"
+  },
+  "login": {
+    "title": "Veuillez vous authentifier",
+    "form": {
+      "email": {
+        "label": "Login",
+        "error": {
+          "invalid": "Email valide requis"
+        }
+      },
+      "password": {
+        "label": "Mot de passe",
+        "hide": "Cacher le mot de passe",
+        "error": {
+          "invalid": "Mot de passe requis"
+        }
+      }
+    },
+    "no-account": "Pas de compte ?",
+    "no-account-link": "Créez-en un"
   }
 }

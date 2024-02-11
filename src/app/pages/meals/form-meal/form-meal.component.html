@@ -5,7 +5,7 @@
     <mat-error *ngIf="name?.errors?.['required']">Please enter a name</mat-error>
   </mat-form-field>
 
-  <div formArrayName="feedComponents" *ngFor="let feedCtrl of feedComponents.controls; let i = index">
+  <div formArrayName="feedComponents" *ngFor="let feedCtrl of feedComponents.controls; let i = index" class="feed-component">
 
     <mat-card class="card-my-form">
       <mat-card-header class="mb-10">

@@ -1,5 +1,5 @@
 <section class="flex mb-40 container">
-  <button mat-fab color="primary" aria-label="{{ 'feed.aria-add' | translate }}" (click)="addFeed()">
+  <button mat-fab color="primary" [attr.aria-label]="'feed.aria-add' | translate" (click)="addFeed()">
     <mat-icon>add</mat-icon>
   </button>
   <div class="my-form shrink flex">

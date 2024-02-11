@@ -121,5 +121,8 @@
         "pattern": "Must be an integer"
       }
     }
+  },
+  "horse": {
+    "aria-add": "Add a horse"
   }
 }

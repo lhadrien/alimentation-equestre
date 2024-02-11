@@ -59,3 +59,13 @@ d
 4src/app/pages/meals/form-meal/form-meal.component.ts,f/5/f58aca1f401e0ddf94d658e8f9c867ea2325e303
 E
 src/app/app.module.ts,0/2/02c004b4329a0d99c45abb61a30dadfde61ecf5d
+G
+src/assets/i18n/en.json,8/b/8b6a462aa04616b27e55711ab3f02697c2c53ff9
+Z
+*src/app/pages/horses/horses.component.html,5/0/5081f29ec93b64307a60140e404eaa074d4bf399
+G
+src/assets/i18n/fr.json,4/e/4e8dd73f7b97e24238a9d7714138b5e7fd72cc6e
+V
+&src/app/pages/login/login.component.ts,6/3/63b333e518d3d6319e767caa8615e34f57519a00
+X
+(src/app/pages/login/login.component.html,1/d/1dcbd6012d665d15468db3a034e9e4626bd8a142

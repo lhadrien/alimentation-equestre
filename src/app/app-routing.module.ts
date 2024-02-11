@@ -18,6 +18,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+    canActivate: [SignedoutGuard],
   },
   {
     path: '',
