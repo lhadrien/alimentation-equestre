@@ -33,9 +33,12 @@ export class UserService {
   private email: string = ''
 
   constructor(private afs: Firestore, private router: Router, private route: ActivatedRoute) {
+    this.checkLocalAuthState() // Check local authentication state upon service initialization
+
     const auth = getAuth()
     auth.onAuthStateChanged((user) => {
       if (user) {
+        this.saveLocalAuthState(user.uid)
         this.idUser = user.uid
         this.getFirebaseUser(user.uid).then(() => {
           console.log('[onAuthStateChanged] Get User firebase done')
@@ -44,6 +47,7 @@ export class UserService {
         this.displayName = user.displayName ?? ''
       } else {
         console.log('[onAuthStateChanged] Disconnected')
+        this.clearLocalAuthState()
         this.idUser = null
         this.displayName = ''
         this.email = ''
@@ -93,6 +97,27 @@ export class UserService {
     }
   }
 
+  saveLocalAuthState(uid: string) {
+    this.setCookie('userValue', uid, 1)
+  }
+
+  checkLocalAuthState() {
+    const uid = this.getCookie('userValue')
+    const isAuthenticated = !!uid
+    if (isAuthenticated) {
+      this.idUser = uid
+      // If local auth state exists, consider the user as logged in
+      // You may want to adjust this logic to better fit your app's flow
+      console.log('[UserService] User is considered authenticated locally')
+      // Optionally, redirect the user to the dashboard or another route
+      // this.router.navigate(['/dashboard']);
+    }
+  }
+
+  clearLocalAuthState() {
+    this.setCookie('userValue', '', -1)
+  }
+
   async signIn(email: string, password: string): Promise<void> {
     try {
       const auth = getAuth()
@@ -103,6 +128,27 @@ export class UserService {
       console.log('[signIn] Error while sign in to Firebase')
       console.warn(error)
     }
+  }
+
+  setCookie(name: string, value: string, days: number) {
+    let expires = ''
+    if (days) {
+      const date = new Date()
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
+      expires = '; expires=' + date.toUTCString()
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; path=/'
+  }
+
+  getCookie(name: string): string {
+    const nameEQ = name + '='
+    const ca = document.cookie.split(';')
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i]
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length)
+    }
+    return ''
   }
 
   async signOut(): Promise<void> {

@@ -2,9 +2,9 @@
   <button mat-fab color="primary" aria-label="Ajouter un menu" (click)="addMeal()">
     <mat-icon>add</mat-icon>
   </button>
-  <div class="my-form shrink flex">
-    <div *ngIf="selectedMeal !== undefined">
-      <app-form-meal [meal]="selectedMeal!" (deleteMeal)="deleteMeal($event)"
+  <div class="my-form grow flex">
+    <div class="full-width" *ngIf="selectedMeal !== undefined">
+      <app-form-meal class="full-width" [meal]="selectedMeal!" (deleteMeal)="deleteMeal($event)"
         (createdMeal)="addMealToList($event)"></app-form-meal>
     </div>
   </div>
